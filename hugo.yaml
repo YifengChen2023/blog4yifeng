@@ -3,23 +3,79 @@ languageCode: en-us
 title: Yifeng's Online Space.
 theme: ["PaperMod"]
 
+
+
+enableEmoji: true
+
+minify:
+  disableXML: true
+  # minifyOutput: true
 params:
   homeInfoParams:
-    Title: "Hello, strangers."
-    Content: Welcome to my blog. Here you will discover fun facts about Yifeng Chen. Maybe we'll become friends after you read the blog.
+    Title: "👋 Welcome to Yifeng's Blog"
+    Content: Hi, this is Yifeng. I finally made up my mind to doc my learning notes in this blog since Feb 2025.
   socialIcons:
     - name: linkedin
       url: "https://linkedin.com"
     - name: github
       url: "https://github.com/"
+    - name: WiKi
+      url: https://github.com/adityatelange/hugo-PaperMod/wiki/
+  
+  profileMode:
+    enabled: false
+    title: "Memento Vivere." # optional default will be site title
+    subtitle: "Yifeng's Blog" # optional default will be site description
+    imageUrl: img/SunOnThePeak.jpg
+    imageTitle: "日照金山" # optional
+    imageWidth: 400 # custom size
+    imageHeight: 400 # custom size
+    buttons:
+      - name: Archive
+        url: "/archive"
+      - name: Github
+        url: "https://github.com/"
 
+  # socialIcons: # optional
+  #   - name: "<platform>"
+  #     url: "<link>"
+  #   - name: "<platform 2>"
+  #     url: "<link2>"
 
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+  
   cover:
     linkFullImages: true
-  ShowBreadCrumbs: true
+  
+  defaultTheme: auto
+  # disableThemeToggle: true
+  ShowShareButtons: false
   ShowReadingTime: true
-  ShowShareButtons: true
+  # disableSpecial1stPost: true
+  displayFullLangName: true
   ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: false
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  # comments: false
+
+  Params:
+  editPost:
+    URL: "https://github.com/YifengChen2023/blog4yifeng/tree/main/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
 menu:
   main:
     - identifiers: categories
@@ -34,3 +90,13 @@ menu:
       name: Archives
       url: /archives/
       weight: 30
+    - identifiers: search
+      name: Search
+      url: /search/
+      weight: 40
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
