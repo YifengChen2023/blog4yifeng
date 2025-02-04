@@ -2,6 +2,9 @@
 date: '2025-02-04T01:25:33-05:00'
 draft: false
 title: 'Philosophize This: Why Our Future is Being Slowly Cancelled'
+cover:
+    image: img/Yifeng.jpg
+    caption: "This is me in the era of neoliberalism."
 ---
 Credits to [this website](https://www.philosophizethis.org/podcast/episode-201-transcript-bkx3e-37rkx).
 ## Transcript
