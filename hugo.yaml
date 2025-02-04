@@ -1,4 +1,4 @@
-baseURL: ""
+baseURL: "https://yifengchen2023.github.io/blog4yifeng/"
 languageCode: en-us
 title: Yifeng's Online Space.
 theme: ["PaperMod"]
@@ -7,13 +7,43 @@ theme: ["PaperMod"]
 
 enableEmoji: true
 
+# label:
+#   icon: img/Yifeng.jpg
+#   iconHeight: 50
 minify:
   disableXML: true
   # minifyOutput: true
+
+
+languages:
+  en:
+    languageName: "Posts"
+    weight: 1
+  fr:
+    languageName: "Profiles"
+    weight: 2
+    params:
+      profileMode:
+        enabled: true
+        title: "Memento Vivere." # optional default will be site title
+        subtitle: "Yifeng's Blog" # optional default will be site description
+        imageUrl: img/SunOnThePeak.jpg
+        imageTitle: "日照金山" # optional
+        imageWidth: 400 # custom size
+        imageHeight: 400 # custom size
+        buttons:
+          - name: Archive
+            url: "/archive"
+          - name: Github
+            url: "https://github.com/"
+
+
+
 params:
   homeInfoParams:
     Title: "👋 Welcome to Yifeng's Blog"
     Content: Hi, this is Yifeng. I finally made up my mind to doc my learning notes in this blog since Feb 2025.
+
   socialIcons:
     - name: linkedin
       url: "https://linkedin.com"
@@ -36,11 +66,6 @@ params:
       - name: Github
         url: "https://github.com/"
 
-  # socialIcons: # optional
-  #   - name: "<platform>"
-  #     url: "<link>"
-  #   - name: "<platform 2>"
-  #     url: "<link2>"
 
   fuseOpts:
     isCaseSensitive: false

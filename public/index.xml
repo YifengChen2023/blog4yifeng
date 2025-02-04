@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Yifeng&#39;s Online Space.</title>
-    <link>//localhost:1313/</link>
+    <link>http://localhost:1313/blog4yifeng/</link>
     <description>Recent content on Yifeng&#39;s Online Space.</description>
     <generator>Hugo -- 0.143.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Feb 2025 01:25:33 -0500</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog4yifeng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Philosophize This: Why Our Future is Being Slowly Cancelled</title>
-      <link>//localhost:1313/posts/philosophize-this/</link>
+      <link>http://localhost:1313/blog4yifeng/posts/philosophize-this/</link>
       <pubDate>Tue, 04 Feb 2025 01:25:33 -0500</pubDate>
-      <guid>//localhost:1313/posts/philosophize-this/</guid>
+      <guid>http://localhost:1313/blog4yifeng/posts/philosophize-this/</guid>
       <description>&lt;p&gt;Credits to &lt;a href=&#34;https://www.philosophizethis.org/podcast/episode-201-transcript-bkx3e-37rkx&#34;&gt;this website&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;transcript&#34;&gt;Transcript&lt;/h2&gt;
 &lt;p&gt;So I HIGHLY recommend listening to last episode on neoliberalism because everything in this episode builds off of THAT one. We’re gonna talk about how the hyperfocus on the individual, the use of competition as the main organizing principle of society, the primary goal of getting the GOVERNMENT out of the way of the people INNOVATING…how all of this gets COMBINED with postmodernism in a way that LEAVES us in a spot… that Mark Fisher thinks is INCREDIBLY difficult to move away from if you wanted to.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Soldiers</title>
-      <link>//localhost:1313/posts/my-first-post/</link>
+      <link>http://localhost:1313/blog4yifeng/posts/my-first-post/</link>
       <pubDate>Tue, 04 Feb 2025 00:37:44 -0500</pubDate>
-      <guid>//localhost:1313/posts/my-first-post/</guid>
+      <guid>http://localhost:1313/blog4yifeng/posts/my-first-post/</guid>
       <description>&lt;h2 id=&#34;introduction-to-soldiers&#34;&gt;Introduction to Soldiers&lt;/h2&gt;</description>
     </item>
   </channel>
