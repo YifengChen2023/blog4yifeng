@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>https://example.org/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>Yifeng&#39;s Online Space. Still Under Construction...</title>
+    <link>/</link>
+    <description>Recent content on Yifeng&#39;s Online Space. Still Under Construction...</description>
     <generator>Hugo -- 0.143.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Feb 2025 01:25:33 -0500</lastBuildDate>
-    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Philosophize This: Why Our Future is Being Slowly Cancelled</title>
-      <link>https://example.org/posts/philosophize-this/</link>
+      <link>/posts/philosophize-this/</link>
       <pubDate>Tue, 04 Feb 2025 01:25:33 -0500</pubDate>
-      <guid>https://example.org/posts/philosophize-this/</guid>
+      <guid>/posts/philosophize-this/</guid>
       <description>&lt;p&gt;Credits to &lt;a href=&#34;https://www.philosophizethis.org/podcast/episode-201-transcript-bkx3e-37rkx&#34;&gt;this website&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;transcript&#34;&gt;Transcript&lt;/h2&gt;
 &lt;p&gt;So I HIGHLY recommend listening to last episode on neoliberalism because everything in this episode builds off of THAT one. We’re gonna talk about how the hyperfocus on the individual, the use of competition as the main organizing principle of society, the primary goal of getting the GOVERNMENT out of the way of the people INNOVATING…how all of this gets COMBINED with postmodernism in a way that LEAVES us in a spot… that Mark Fisher thinks is INCREDIBLY difficult to move away from if you wanted to.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>My First Post</title>
-      <link>https://example.org/posts/my-first-post/</link>
+      <title>Soldiers</title>
+      <link>/posts/my-first-post/</link>
       <pubDate>Tue, 04 Feb 2025 00:37:44 -0500</pubDate>
-      <guid>https://example.org/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;
-&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
+      <guid>/posts/my-first-post/</guid>
+      <description>&lt;h2 id=&#34;introduction-to-soldiers&#34;&gt;Introduction to Soldiers&lt;/h2&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,4 +1,19 @@
-baseURL: https://example.org/
+baseURL: ""
 languageCode: en-us
-title: Yifeng's Online Space...
+title: Yifeng's Online Space. Still Under Construction...
 theme: ["PaperMod"]
+
+menu:
+  main:
+    - identifiers: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifiers: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifiers: archives
+      name: Archives
+      url: /archives/
+      weight: 30
