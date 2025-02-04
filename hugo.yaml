@@ -6,12 +6,10 @@ theme: ["PaperMod"]
 params:
   homeInfoParams:
     Title: "Hello, strangers."
-    Content: Welcome to my blog. Still Under Construction... \n Here you will discover fun facts about Yifeng Chen. Maybe we'll become friends after you read the blog.
+    Content: Welcome to my blog. Here you will discover fun facts about Yifeng Chen. Maybe we'll become friends after you read the blog.
   socialIcons:
     - name: linkedin
       url: "https://linkedin.com"
-    - name: facebook
-      url: "https://facebook.com/"
     - name: github
       url: "https://github.com/"
 
