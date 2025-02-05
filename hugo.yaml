@@ -2,7 +2,7 @@ baseURL: "https://yifengchen2023.github.io/blog4yifeng/"
 languageCode: en-us
 title: Yifeng's Online Space.
 theme: ["PaperMod"]
-
+# mainsection: ["posts", "papermod"]
 
 
 enableEmoji: true
@@ -18,7 +18,8 @@ minify:
 languages:
   en:
     languageName: "Posts"
-    weight: 1
+    weight: 1      
+    
     menu:
       main:
         - identifiers: categories
@@ -46,14 +47,14 @@ languages:
         title: "Memento Vivere." # optional default will be site title
         subtitle: "Remember to live." # optional default will be site description
         imageUrl: img/SunOnThePeak.jpg
-        imageTitle: "日照金山" # optional
+        imageTitle: "Sunrise on Meili Snow Mountains." # optional
         imageWidth: 400 # custom size
         imageHeight: 400 # custom size
-        buttons:
-          - name: Archive
-            url: "/archive"
-          - name: Github
-            url: "https://github.com/"
+        # buttons:
+        #   - name: Archive
+        #     url: "/archive"
+        #   - name: Github
+        #     url: "https://github.com/"
     menu:
       main:
         - identifiers: categories
@@ -78,7 +79,6 @@ params:
   homeInfoParams:
     Title: "👋 Welcome to Yifeng's Blog"
     Content: Hi, this is Yifeng. I finally made up my mind to doc my learning notes in this blog since Feb 2025.
-
   socialIcons:
     - name: linkedin
       url: "https://linkedin.com"
@@ -86,21 +86,6 @@ params:
       url: "https://github.com/"
     - name: WiKi
       url: https://github.com/adityatelange/hugo-PaperMod/wiki/
-  
-  profileMode:
-    enabled: false
-    title: "Memento Vivere." # optional default will be site title
-    subtitle: "Yifeng's Blog" # optional default will be site description
-    imageUrl: img/SunOnThePeak.jpg
-    imageTitle: "日照金山" # optional
-    imageWidth: 400 # custom size
-    imageHeight: 400 # custom size
-    buttons:
-      - name: Archive
-        url: "/archive"
-      - name: Github
-        url: "https://github.com/"
-
 
   fuseOpts:
     isCaseSensitive: false
@@ -130,12 +115,13 @@ params:
   ShowToc: true
   # comments: false
 
-  Params:
   editPost:
     URL: "https://github.com/YifengChen2023/blog4yifeng/tree/main/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
-
+  
+  assets: 
+    favicon: "img/favicon.ico"
 
 
 outputs:

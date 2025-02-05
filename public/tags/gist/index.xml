@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Gist on Yifeng&#39;s Online Space.</title>
-    <link>https://yifengchen2023.github.io/blog4yifeng/tags/gist/</link>
+    <link>http://localhost:1313/blog4yifeng/tags/gist/</link>
     <description>Recent content in Gist on Yifeng&#39;s Online Space.</description>
     <generator>Hugo -- 0.143.0</generator>
     <language>en</language>
     <lastBuildDate>Tue, 04 Feb 2025 00:37:44 -0500</lastBuildDate>
-    <atom:link href="https://yifengchen2023.github.io/blog4yifeng/tags/gist/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog4yifeng/tags/gist/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Soldiers</title>
-      <link>https://yifengchen2023.github.io/blog4yifeng/posts/my-first-post/</link>
+      <link>http://localhost:1313/blog4yifeng/posts/my-first-post/</link>
       <pubDate>Tue, 04 Feb 2025 00:37:44 -0500</pubDate>
-      <guid>https://yifengchen2023.github.io/blog4yifeng/posts/my-first-post/</guid>
+      <guid>http://localhost:1313/blog4yifeng/posts/my-first-post/</guid>
       <description>&lt;h2 id=&#34;introduction-to-soldiers&#34;&gt;Introduction to Soldiers&lt;/h2&gt;</description>
     </item>
   </channel>

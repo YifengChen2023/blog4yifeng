@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yifengchen2023.github.io/blog4yifeng/fr/categories/</loc>
+    <loc>http://localhost:1313/blog4yifeng/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://yifengchen2023.github.io/blog4yifeng/categories/"
+                href="http://localhost:1313/blog4yifeng/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://yifengchen2023.github.io/blog4yifeng/fr/categories/"
+                href="http://localhost:1313/blog4yifeng/fr/categories/"
                 />
   </url><url>
-    <loc>https://yifengchen2023.github.io/blog4yifeng/fr/tags/</loc>
+    <loc>http://localhost:1313/blog4yifeng/fr/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://yifengchen2023.github.io/blog4yifeng/tags/"
+                href="http://localhost:1313/blog4yifeng/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://yifengchen2023.github.io/blog4yifeng/fr/tags/"
+                href="http://localhost:1313/blog4yifeng/fr/tags/"
                 />
   </url><url>
-    <loc>https://yifengchen2023.github.io/blog4yifeng/fr/</loc>
+    <loc>http://localhost:1313/blog4yifeng/fr/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://yifengchen2023.github.io/blog4yifeng/"
+                href="http://localhost:1313/blog4yifeng/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://yifengchen2023.github.io/blog4yifeng/fr/"
+                href="http://localhost:1313/blog4yifeng/fr/"
                 />
   </url>
 </urlset>

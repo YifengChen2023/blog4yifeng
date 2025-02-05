@@ -2,14 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://yifengchen2023.github.io/blog4yifeng/en/sitemap.xml</loc>
+    <loc>http://localhost:1313/blog4yifeng/en/sitemap.xml</loc>
     
       <lastmod>2025-02-04T01:25:33-05:00</lastmod>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://yifengchen2023.github.io/blog4yifeng/fr/sitemap.xml</loc>
+    <loc>http://localhost:1313/blog4yifeng/fr/sitemap.xml</loc>
     
   </sitemap>
   
