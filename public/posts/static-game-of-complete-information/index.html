@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/blog4yifeng/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog4yifeng/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Static Game of Complete Information | Yifeng&#39;s Online Space.</title>
+<meta name="keywords" content="">
+<meta name="description" content="1 完全信息静态博弈
+完全信息：每个参与者的收益函数在所有参与者之间是共同知识
+静态博弈：各方同时行动，每个人的行动都会影响各自的收益，即收益函数不仅仅与个人自己的选择有关
+如何描述一个博弈问题：
+
+博弈的三要素：参与者，策略集，收益
+
+如何求解博弈的解：严格劣战略，纳什均衡
+四个应用模型：古诺模型/贝特兰德模型/最后要价仲裁/公共财产问题
+混合战略均衡与纳什定理
+1.1 博弈的标准表示和纳什均衡
+囚徒困境可以使用双变量矩阵表来表示，习惯上将横行代表的参与者收益放在前面
+博弈的标准表示：
+
+博弈的参与者
+每个参与者可供选择的战略集
+针对所有参与者可能选择的战略组合，每个参与者获得的收益
+
+形式化定义：
+记n个博弈者的标号为i，参与者i的战略空间为$S_i$，其中一个特定的战略为$s_i\in S_i$，令
+$$
+(s_1,s_2,&hellip;,s_n)
+$$
+表示每个参与者选定一个战略形成的战略组合，令
+$$
+u_i(s_1,s_2,&hellip;,s_n)
+$$
+表示参与者选择战略$s_1&hellip;s_n$时，参与者$i$的收益。
+定义
+在一个$n$人博弈的标准式表述中，用
+$$
+G={S_1, &hellip;,S_n;u_1, &hellip;,u_n}
+$$
+表示此博弈。
+1.1.1 重复剔除严格劣策略
+定义：一个严格劣策略是指，对于某个博弈方的某个策略，对于任何一个策略组合，该策略的收益均小于该博弈方选择某个其他策略的收益。
+形式化定义：在标准式博弈
+$$
+G={S_1, &hellip;,s_n;u_1,&hellip;,u_n}
+$$
+中，令$s_i&rsquo;,s_i&rsquo;&rsquo;$代表参与者i的两个可行战略组合。若对于其他战略者的每一个战略组合，i选择$s_i&rsquo;$的收益均小于其选择$s_i&rsquo;&rsquo;$的收益， 则称$s_i&rsquo;$相对于$s_i&rsquo;&rsquo;$是严格劣策略：
+$$
+u_i(s_1, &hellip;,s_{i-1},s_i&rsquo;,s_{i&#43;1},&hellip;,s_n)&lt;u_i(s_1, &hellip;,s_{i-1},s_i&rsquo;&rsquo;,s_{i&#43;1},&hellip;,s_n)
+$$
+对其他参与者在其战略空间
+$$
+S_1, &hellip;,S_{i-1},S_{i&#43;1},&hellip;,S_n
+$$
+中每一组可能的战略
+$$
+s_1, &hellip;,s_{i-1},s_{i&#43;1},&hellip;,s_n
+$$
+都成立。
+在解决博弈问题的时候可以使用重复剔除劣策略的方法来求得解。
+缺陷是需要假定参与者是理性的是共同知识，经常是不精确的。
+1.1.2 纳什均衡的导出和定义
+定义：在n个人参与的标准式博弈$G={S_1, &hellip;,s_n;u_1,&hellip;,u_n}$中，如果战略组合
+$$
+{s_1&rsquo;, &hellip;,s_n&rsquo;}
+$$
+满足对每一个参与者i，$s_i&rsquo;$是针对其他n-1个参与者所选战略
+$$
+{s_1&rsquo;, &hellip;,s_{i-1}&rsquo;,s_{i&#43;1}&rsquo;,&hellip;,s_n&rsquo;}
+$$
+的最佳应对，即
+$$
+u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i&rsquo;,s_{i&#43;1}&rsquo;,&hellip;,s_n&rsquo;)\geqslant u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i,s_{i&#43;1}&rsquo;,&hellip;,s_n&rsquo;)\tag{1}
+$$
+则称战略组合
+$$
+{s_1&rsquo;, &hellip;,s_n&rsquo;}
+$$
+是该博弈的一个纳什均衡。">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog4yifeng/posts/static-game-of-complete-information/">
+<link crossorigin="anonymous" href="/blog4yifeng/assets/css/stylesheet.a67ae7575b0fa5f538ded5043eed91676b249558260d75a7a00e2448853aca06.css" integrity="sha256-pnrnV1sPpfU43tUEPu2RZ2sklVgmDXWnoA4kSIU6ygY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/blog4yifeng/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/blog4yifeng/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/blog4yifeng/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/blog4yifeng/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/blog4yifeng/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog4yifeng/posts/static-game-of-complete-information/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/blog4yifeng/" accesskey="h" title="Yifeng&#39;s Online Space. (Alt + H)">Yifeng&#39;s Online Space.</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="http://localhost:1313/blog4yifeng/fr/" title="Motto"
+                            aria-label="Motto">Motto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/blog4yifeng/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog4yifeng/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Static Game of Complete Information
+    </h1>
+    <div class="post-meta"><span title='2025-02-04 23:58:54 -0500 EST'>February 4, 2025</span>&nbsp;·&nbsp;4 min&nbsp;|&nbsp;<a href="https://github.com/YifengChen2023/blog4yifeng/tree/main/content/posts/static-game-of-complete-information.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-%e5%ae%8c%e5%85%a8%e4%bf%a1%e6%81%af%e9%9d%99%e6%80%81%e5%8d%9a%e5%bc%88" aria-label="1 完全信息静态博弈">1 完全信息静态博弈</a><ul>
+                        
+                <li>
+                    <a href="#11-%e5%8d%9a%e5%bc%88%e7%9a%84%e6%a0%87%e5%87%86%e8%a1%a8%e7%a4%ba%e5%92%8c%e7%ba%b3%e4%bb%80%e5%9d%87%e8%a1%a1" aria-label="1.1 博弈的标准表示和纳什均衡">1.1 博弈的标准表示和纳什均衡</a><ul>
+                        
+                <li>
+                    <a href="#111-%e9%87%8d%e5%a4%8d%e5%89%94%e9%99%a4%e4%b8%a5%e6%a0%bc%e5%8a%a3%e7%ad%96%e7%95%a5" aria-label="1.1.1 重复剔除严格劣策略">1.1.1 重复剔除严格劣策略</a></li>
+                <li>
+                    <a href="#112-%e7%ba%b3%e4%bb%80%e5%9d%87%e8%a1%a1%e7%9a%84%e5%af%bc%e5%87%ba%e5%92%8c%e5%ae%9a%e4%b9%89" aria-label="1.1.2 纳什均衡的导出和定义">1.1.2 纳什均衡的导出和定义</a></li>
+                <li>
+                    <a href="#113-%e7%ba%b3%e4%bb%80%e5%9d%87%e8%a1%a1%e4%b8%8e%e9%87%8d%e5%a4%8d%e5%89%94%e9%99%a4%e5%8a%a3%e7%ad%96%e7%95%a5%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="1.1.3 纳什均衡与重复剔除劣策略的关系">1.1.3 纳什均衡与重复剔除劣策略的关系</a></li></ul>
+                </li>
+                <li>
+                    <a href="#12-%e5%ba%94%e7%94%a8%e4%b8%be%e4%be%8b" aria-label="1.2 应用举例">1.2 应用举例</a><ul>
+                        
+                <li>
+                    <a href="#121-%e5%8f%a4%e8%af%ba%e6%a8%a1%e5%9e%8b" aria-label="1.2.1 古诺模型">1.2.1 古诺模型</a></li>
+                <li>
+                    <a href="#122-%e4%bc%af%e5%b7%9d%e5%be%b7%e6%a8%a1%e5%9e%8b" aria-label="1.2.2 伯川德模型">1.2.2 伯川德模型</a></li>
+                <li>
+                    <a href="#123-%e6%9c%80%e5%90%8e%e8%a6%81%e4%bb%b7%e4%bb%b2%e8%a3%81" aria-label="1.2.3 最后要价仲裁">1.2.3 最后要价仲裁</a></li>
+                <li>
+                    <a href="#124-%e5%85%ac%e5%85%b1%e8%b4%a2%e4%ba%a7%e9%97%ae%e9%a2%98" aria-label="1.2.4 公共财产问题">1.2.4 公共财产问题</a></li></ul>
+                </li>
+                <li>
+                    <a href="#13-%e6%b7%b7%e5%90%88%e6%88%98%e7%95%a5%e5%92%8c%e5%9d%87%e8%a1%a1%e7%9a%84%e5%ad%98%e5%9c%a8%e6%80%a7" aria-label="1.3 混合战略和均衡的存在性">1.3 混合战略和均衡的存在性</a><ul>
+                        
+                <li>
+                    <a href="#131-%e6%b7%b7%e5%90%88%e6%88%98%e7%95%a5" aria-label="1.3.1 混合战略">1.3.1 混合战略</a></li>
+                <li>
+                    <a href="#132-%e7%ba%b3%e4%bb%80%e5%9d%87%e8%a1%a1%e8%a7%a3%e7%9a%84%e5%ad%98%e5%9c%a8%e6%80%a7" aria-label="1.3.2 纳什均衡解的存在性">1.3.2 纳什均衡解的存在性</a></li>
+                <li>
+                    <a href="#133-%e7%ba%b3%e4%bb%80%e5%ae%9a%e7%90%86" aria-label="1.3.3 纳什定理">1.3.3 纳什定理</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="1-完全信息静态博弈">1 完全信息静态博弈<a hidden class="anchor" aria-hidden="true" href="#1-完全信息静态博弈">#</a></h1>
+<p>完全信息：每个参与者的收益函数在所有参与者之间是共同知识</p>
+<p>静态博弈：各方同时行动，每个人的行动都会影响各自的收益，即收益函数不仅仅与个人自己的选择有关</p>
+<p>如何描述一个博弈问题：</p>
+<ul>
+<li>博弈的三要素：参与者，策略集，收益</li>
+</ul>
+<p>如何求解博弈的解：严格劣战略，纳什均衡</p>
+<p>四个应用模型：古诺模型/贝特兰德模型/最后要价仲裁/公共财产问题</p>
+<p>混合战略均衡与纳什定理</p>
+<h2 id="11-博弈的标准表示和纳什均衡">1.1 博弈的标准表示和纳什均衡<a hidden class="anchor" aria-hidden="true" href="#11-博弈的标准表示和纳什均衡">#</a></h2>
+<p>囚徒困境可以使用双变量矩阵表来表示，习惯上将横行代表的参与者收益放在前面</p>
+<p>博弈的标准表示：</p>
+<ol>
+<li>博弈的参与者</li>
+<li>每个参与者可供选择的战略集</li>
+<li>针对所有参与者可能选择的战略组合，每个参与者获得的收益</li>
+</ol>
+<p>形式化定义：</p>
+<p>记n个博弈者的标号为i，参与者i的战略空间为$S_i$，其中一个特定的战略为$s_i\in S_i$，令
+$$
+(s_1,s_2,&hellip;,s_n)
+$$
+表示每个参与者选定一个战略形成的战略组合，令
+$$
+u_i(s_1,s_2,&hellip;,s_n)
+$$
+表示参与者选择战略$s_1&hellip;s_n$时，参与者$i$的收益。</p>
+<p><strong>定义</strong></p>
+<p>在一个$n$人博弈的标准式表述中，用
+$$
+G={S_1, &hellip;,S_n;u_1, &hellip;,u_n}
+$$
+表示此博弈。</p>
+<h3 id="111-重复剔除严格劣策略">1.1.1 重复剔除严格劣策略<a hidden class="anchor" aria-hidden="true" href="#111-重复剔除严格劣策略">#</a></h3>
+<p>定义：一个严格劣策略是指，对于某个博弈方的某个策略，对于任何一个策略组合，该策略的收益均小于该博弈方选择某个其他策略的收益。</p>
+<p>形式化定义：在标准式博弈
+$$
+G={S_1, &hellip;,s_n;u_1,&hellip;,u_n}
+$$
+中，令$s_i&rsquo;,s_i&rsquo;&rsquo;$代表参与者i的两个可行战略组合。若对于其他战略者的每一个战略组合，i选择$s_i&rsquo;$的收益均<strong>小于</strong>其选择$s_i&rsquo;&rsquo;$的收益， 则称$s_i&rsquo;$相对于$s_i&rsquo;&rsquo;$是严格劣策略：
+$$
+u_i(s_1, &hellip;,s_{i-1},s_i&rsquo;,s_{i+1},&hellip;,s_n)&lt;u_i(s_1, &hellip;,s_{i-1},s_i&rsquo;&rsquo;,s_{i+1},&hellip;,s_n)
+$$
+对其他参与者在其战略空间
+$$
+S_1, &hellip;,S_{i-1},S_{i+1},&hellip;,S_n
+$$
+中每一组可能的战略
+$$
+s_1, &hellip;,s_{i-1},s_{i+1},&hellip;,s_n
+$$
+都成立。</p>
+<p>在解决博弈问题的时候可以使用重复剔除劣策略的方法来求得解。</p>
+<p>缺陷是需要假定参与者是理性的是共同知识，经常是不精确的。</p>
+<h3 id="112-纳什均衡的导出和定义">1.1.2 纳什均衡的导出和定义<a hidden class="anchor" aria-hidden="true" href="#112-纳什均衡的导出和定义">#</a></h3>
+<p>定义：在n个人参与的标准式博弈$G={S_1, &hellip;,s_n;u_1,&hellip;,u_n}$中，如果战略组合
+$$
+{s_1&rsquo;, &hellip;,s_n&rsquo;}
+$$
+满足对每一个参与者i，$s_i&rsquo;$是针对其他n-1个参与者所选战略
+$$
+{s_1&rsquo;, &hellip;,s_{i-1}&rsquo;,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;}
+$$
+的<strong>最佳应对</strong>，即
+$$
+u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i&rsquo;,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)\geqslant u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)\tag{1}
+$$
+则称战略组合
+$$
+{s_1&rsquo;, &hellip;,s_n&rsquo;}
+$$
+是该博弈的一个纳什均衡。</p>
+<p>亦即$s_i&rsquo;$是一下最优化问题的解：
+$$
+\max_{s_i\in S_i} u_i{s_1&rsquo;, &hellip;,s_{i-1}&rsquo;, s_i,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;}
+$$
+如果博弈论提供的战略组合解不是纳什均衡，则至少有一个参与者有动因偏离理论的预测，使得博弈真实进行和理论预测不一致。</p>
+<h3 id="113-纳什均衡与重复剔除劣策略的关系">1.1.3 纳什均衡与重复剔除劣策略的关系<a hidden class="anchor" aria-hidden="true" href="#113-纳什均衡与重复剔除劣策略的关系">#</a></h3>
+<p>纳什均衡解是一个比重复剔除劣策略解更强的条件：</p>
+<p>如果用重复剔除严格劣战略把除战略组合${s_1,&hellip;,s_n}$外所有的战略组合都剔除掉，则该所存战略组合就是此博弈惟一的纳什均衡。</p>
+<p>如果战略组合${s_1,&hellip;,s_n}$是一个纳什均衡，它一定不会被重复剔除严格劣战略所剔除。</p>
+<p>证明：</p>
+<p>先证明第二个。</p>
+<p>假设纳什均衡在重复剔除劣策略过程中被剔除，则对于一个参与者i和被剔除的策略$s_i&rsquo;$，一定存在一个尚未被剔除的的策略$s_i&rsquo;&rsquo;$严格优于$s_i&rsquo;$，即
+$$
+u_i(s_1, &hellip;,s_{i-1},s_i&rsquo;,s_{i+1},&hellip;,s_n)&lt;u_i(s_1, &hellip;,s_{i-1},s_i&rsquo;&rsquo;,s_{i+1},&hellip;,s_n)\tag{A}
+$$
+对于每个其他参与者尚未被剔除的战略空间中可能形成的战略组合$(s_1,&hellip;,s_{i-1},s_{i+1},&hellip;,s_n)$都成立。于是作为A的特例，下式成立
+$$
+u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i&rsquo;,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)&lt; u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i&rsquo;&rsquo;,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)
+$$
+与纳什均衡的定义是矛盾的。</p>
+<p>再证明第一个。</p>
+<p>证明过第二个只需要证明如果重复剔除劣策略剔除了除${s_1&rsquo;,&hellip;,s_n&rsquo;}$之外的所有战略，则该战略是纳什均衡。</p>
+<p>假设最后剩余的${s_1&rsquo;,&hellip;,s_n&rsquo;}$不是纳什均衡。那么一定存在某个参与者i的某个策略$s_i$，使得
+$$
+u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i&rsquo;,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)\lt u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)
+$$
+成立，且$s_i$是剔除过程中的某一阶段的严格劣策略，即
+$$
+u_i(s_1, &hellip;,s_{i-1},s_i,s_{i+1},&hellip;,s_n)&lt;u_i(s_1, &hellip;,s_{i-1},s_i&rsquo;,s_{i+1},&hellip;,s_n)\tag{B}
+$$
+对于所有其他参与者在该阶段剩余策略的可能战略组合都成立。由于其他参与者的战略$s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;$未被剔除，则B的特例为
+$$
+u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)\lt u_i(s_1&rsquo;,&hellip;,s_{i-1}&rsquo;,s_i&rsquo;,s_{i+1}&rsquo;,&hellip;,s_n&rsquo;)
+$$
+若$s_i&rsquo;=s_i&rsquo;$，则两式矛盾，证明结束。若两个不相等，则由于$s_i&rsquo;$最终被剔除掉，则说明一定有其他策略严格优于$s_i&rsquo;$，重复B式，即可将所有的$S_i$中的元素穷尽一边，则一定会推出$s_i&rsquo;=s_i&rsquo;$。</p>
+<h2 id="12-应用举例">1.2 应用举例<a hidden class="anchor" aria-hidden="true" href="#12-应用举例">#</a></h2>
+<h3 id="121-古诺模型">1.2.1 古诺模型<a hidden class="anchor" aria-hidden="true" href="#121-古诺模型">#</a></h3>
+<p>双寡头模型，同质产品生产，通过产量决策。</p>
+<p>$$
+P(Q)=a-Q,不允许负值,C(q_i)=cq_i,c&lt;a
+$$
+关键是将企业的收益表示为他自己和另一企业所选择战略的函数:
+$$
+\pi_i(q_i,q_j)=q_i[p(q_i+q_j)-c]=q_i[a-(q_i+q_j)-c]\tag{收益函数}
+$$
+在两人的博弈式中，一对战略$(s_i&rsquo;,s_j&rsquo;)$是纳什均衡，则每个参与者i，$s_i&rsquo;$应该满足，
+$$
+u_i(s_i&rsquo;,s_j&rsquo;)\geqslant u_i(s_i,s_j&rsquo;)
+$$
+对于$S_i$中每个可选战略都成立，等价于对于每个参与者i，$s_i&rsquo;$满足
+$$
+s_i&rsquo;=\arg_{s_i\in S_i} \max u_i(s_i,s_j&rsquo;)
+$$
+有收益函数，可以假定出自己之外的参与方决策变量为常数进行求导，有二次函数性质，一阶条件即为解，有
+$$
+q_1&rsquo; = \frac{1}{2} (a - q_2&rsquo; - c)
+$$
+$$
+q_2&rsquo; = \frac{1}{2} (a - q_1&rsquo; - c)
+$$
+$$
+\text{解得} \quad q_1&rsquo; = q_2&rsquo; = \frac{a - c}{3}
+$$</p>
+<p>一家企业当然都希望成为市场的垄断者，这时它会选择使自己的利润最大化，结果其产量将为垄断产量$\frac {a-c} 2$并可赚取垄断利润。在市场上有两家企业的情况下，要使两企业总的利润最大化，两企业的产量之和应等于垄断产量，比如各占$\frac {a-c} 4$就可满足这一条件。但这安排存在一个问题，就是每一家企业都有动机偏离它：因为垄断产量较低，相应的市场价格就比较高，在这一价格下每家企业都会倾向于提高产量，而不顾这种产量的增加会降低市场出清价格。</p>
+<p>也可使用重复剔除劣策略的方法求解纳什均衡，但是需要剔除无限步，且对于多于两个的博弈模型而言，重复剔除劣策略方法将失效。</p>
+<h3 id="122-伯川德模型">1.2.2 伯川德模型<a hidden class="anchor" aria-hidden="true" href="#122-伯川德模型">#</a></h3>
+<p>双寡头模型，同质产品生产，通过价格决策。
+$$
+q_i(p_i, p_j) = a - p_i + b p_j, \quad b &gt; 0, \quad C_i = c q_i, \quad c &lt; a,
+$$
+$$
+\pi_i(p_i, p_j) = q_i(p_i, p_j)(p_i - c) = (a - p_i + b p_j)(p_i - c),
+$$
+$$
+\max_{0 \leq p_i \leq \infty} \pi_i(p_i, p_j&rsquo;) \quad \text{可得}
+$$
+$$
+p_i&rsquo; = \frac{1}{2} (a + b p_j&rsquo; + c), \quad \text{解得} \quad p_1&rsquo; = p_2&rsquo; = \frac{a + c}{2 - b}
+$$</p>
+<h3 id="123-最后要价仲裁">1.2.3 最后要价仲裁<a hidden class="anchor" aria-hidden="true" href="#123-最后要价仲裁">#</a></h3>
+<p>博弈进行的时序如下。第一步，企业和工会同时开出自己希望的工资水平，分别用$w_f,w_u$表示。第二步，仲裁人在二者之中选择其一作为结果。（与许多被称为静态的博弈相似，它其实属于将在第 2 章讨论的动态博弈，只不过这里我们通过对仲裁者第二步行为的假定，将其简化为企业和工会之间的静态博弈）假定仲裁人本身对工资水平有自己认为合理的方案，用x来表示这一理想值，进一步假定在观测到双方要价$w_f,w_u$后，仲裁人只是简单选择与自己期望相近的要价。只有仲裁者知道x，博弈双方并不知道，他们相信x是一个随机变量，其积累分布函数记作F（x），概率密度函数记作f(x)。</p>
+<p>这里假设工会要加会高于工厂要价。即期望的工资水平为
+$$
+w_fP(w_fIsChosen)+w_uP(w_uIsChosen)=w_fF(\frac {w_f+w_u}2)+w_u(1-F(\frac {w_f+w_u}2))
+$$
+工会肯定希望最终期望工资最小化，工会则设法将其最大化。还是采用纳什均衡，
+$$
+w_f&rsquo;:\min_{w_f}w_fF(\frac {w_f+w_u&rsquo;}2)+w_u&rsquo;(1-F(\frac {w_f+w_u&rsquo;}2))
+$$
+$$
+w_u&rsquo;:\max_{w_u}w_f&rsquo;F(\frac {w_f&rsquo;+w_u}2)+w_u(1-F(\frac {w_f&rsquo;+w_u}2))
+$$
+则必须满足上述最优化问题的一阶条件（后面再讨论上面一阶条件的充分性），
+$$
+(w_u&rsquo; - w_f&rsquo;) \cdot \frac{1}{2} f\left( \frac{w_f&rsquo; + w_u&rsquo;}{2} \right) = F\left( \frac{w_f&rsquo; + w_u&rsquo;}{2} \right),
+$$
+$$
+(w_u&rsquo; - w_f&rsquo;) \cdot \frac{1}{2} f\left( \frac{w_f&rsquo; + w_u&rsquo;}{2} \right) = 1 - F\left( \frac{w_f&rsquo; + w_u&rsquo;}{2} \right), \quad \text{解得} \quad
+F\left( \frac{w_f&rsquo; + w_u&rsquo;}{2} \right) = \frac{1}{2}
+$$</p>
+<p>这表明，双方要价的均值，一定等于仲裁者偏好的概率中值，带入任何一个一阶条件可以得到
+$$
+w_u&rsquo;-w_f&rsquo;=\frac 1 {f(\frac {w_f&rsquo;+w_u&rsquo;}2)}
+$$
+假设仲裁者方案服从期望值为m，方差为$\sigma^2$的正态分布
+$$
+f(x)=\frac 1 {\sqrt {2\pi\sigma^2}}exp{-\frac 1 {2\sigma^2}(x-m)^2}
+$$
+则有
+$$
+w_u&rsquo;=m+\sqrt {\pi\sigma^2/2},w_f&rsquo;=m-\sqrt {\pi\sigma^2/2}
+$$</p>
+<h3 id="124-公共财产问题">1.2.4 公共财产问题<a hidden class="anchor" aria-hidden="true" href="#124-公共财产问题">#</a></h3>
+<p>参与者：n个人</p>
+<p>策略集：选择放羊数$g_i$，假设羊数连续可分割，$\in[0,\infty)$</p>
+<p>收益规则：每只羊的成本为c，收益为
+$$
+v(G), \quad G = \sum_{i=1}^n g_i, \quad v(G) = \begin{cases}
+v(G) &gt; 0, &amp; G &lt; G_{\max} \ 0, &amp; \text{otherwise}
+\end{cases}
+$$
+$$
+\text{且} \quad G &lt; G_{\max} \quad \text{有一阶二阶导数均为负数}
+$$</p>
+<p>当其他村民养羊数量为$(g_1,&hellip;,g_{i-1},g_{i+1},&hellip;,g_n)$​时，村民i放养$g_i$​只羊的时候收益为
+$$
+g_iv(G)-cg_i
+$$
+若$(g_1&rsquo;,&hellip;,g_i&rsquo;,&hellip;,g_n&rsquo;)$为纳什均衡，则对于每个村民i，当其他村民选择$(g_1&rsquo;,&hellip;,g_{i-1}&rsquo;,g_{i+1}&rsquo;,&hellip;,g_n&rsquo;)$时，$g_i&rsquo;$​必须使得上式最大化。这一最优化问题的一阶条件为
+$$
+v(g_i+g_{-i}&rsquo;)+g_iv&rsquo;(g_i+g_{-i}&rsquo;)-c=0
+$$
+将$g_i&rsquo;$带入并将所有一阶条件进行加总，可得
+$$
+v(G&rsquo;)+\frac 1 nG&rsquo;v&rsquo;(G&rsquo;)-c=0\tag{个人最优条件}
+$$
+但是全社会的最优选择$G&rsquo;$应该满足
+$$
+\max_{0\leq G&lt;\infty}Gv(G)-cG
+$$
+一阶条件为
+$$
+v(G&rsquo;)+G&rsquo;v&rsquo;(G&rsquo;)-c=0\tag{集体最优条件}
+$$
+可以得到$G&rsquo;&laquo;G^{*}$</p>
+<h2 id="13-混合战略和均衡的存在性">1.3 混合战略和均衡的存在性<a hidden class="anchor" aria-hidden="true" href="#13-混合战略和均衡的存在性">#</a></h2>
+<h3 id="131-混合战略">1.3.1 混合战略<a hidden class="anchor" aria-hidden="true" href="#131-混合战略">#</a></h3>
+<p>纯策略：规范地表示，参与者i的一个混合战略是在其战略空间S_i中的战略的概率分布，此后称S_i中的战略为i的纯策略。</p>
+<p>定义：对于标准式博弈G，假设$S_i$=
+$$
+{s_{i1},&hellip;,s_{iK}}
+$$
+那么参与者i的一个混合战略为概率分布
+$$
+p_i=(p_{i1},&hellip;,p_{iK}),其中k=1,&hellip;,K,0\leq p_{ik}\leq 1, p_{i1}+&hellip;+p_{ik}=1
+$$</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L</th>
+          <th>R</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>T</td>
+          <td>3，-</td>
+          <td>0，-</td>
+      </tr>
+      <tr>
+          <td>M</td>
+          <td>0，-</td>
+          <td>3，-</td>
+      </tr>
+      <tr>
+          <td>B</td>
+          <td>1，-</td>
+          <td>1，-</td>
+      </tr>
+  </tbody>
+</table>
+<p>结论：一个给定的纯战略可能会严格劣于一个混合战略，即使这个纯战略并不严格劣于其他任何一个纯战略。</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L</th>
+          <th>R</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>T</td>
+          <td>3，-</td>
+          <td>0，-</td>
+      </tr>
+      <tr>
+          <td>M</td>
+          <td>0，-</td>
+          <td>3，-</td>
+      </tr>
+      <tr>
+          <td>B</td>
+          <td>2，-</td>
+          <td>2，-</td>
+      </tr>
+  </tbody>
+</table>
+<p>一个给定的纯战略可以是针对一个混合战略的最优反应，即使这一纯战略并不是对方任何一个纯战略的最优反应。</p>
+<h3 id="132-纳什均衡解的存在性">1.3.2 纳什均衡解的存在性<a hidden class="anchor" aria-hidden="true" href="#132-纳什均衡解的存在性">#</a></h3>
+<p>扩展纳什均衡定义：每一参与者的混合战略是其他参与者混合战略的最优反应（注意纯战略$\in$混合战略）。</p>
+<p>对参与者i来讲，参与者j的混合战略代表了他对j将选择战略的不确定性，并据此计算参与者i对j混合战略的最优反应。</p>
+<p>以猜硬币博弈为例：</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>正面</th>
+          <th>反面</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>正面</td>
+          <td>-1，1</td>
+          <td>1，-1</td>
+      </tr>
+      <tr>
+          <td>反面</td>
+          <td>1，-1</td>
+          <td>-1，1</td>
+      </tr>
+  </tbody>
+</table>
+<p>假设参与者1推断参与者2将使用混合战略$(q,1-q)$，据此
+$$
+q\cdot(-1)+(1-q)\cdot1=1-2q
+$$
+$$
+q\cdot1+(1-q)\cdot(-1)=2q-1
+$$
+则参与者1的最优纯战略
+$$
+\begin{cases}
+\text{出正面} &amp; q &lt; \frac{1}{2} \
+\text{出反面} &amp; q &gt; \frac{1}{2} \
+\text{无所谓} &amp; q = \frac{1}{2}
+\end{cases}
+$$</p>
+<p>现计算参与者1的混合战略。令(r,1-r)为参与者1的混合战略。计算r的值，使得(r,1-r)为参与者2选择(q,1-q)时参与者1的最佳应对。</p>
+<p>当参与者 2 选择（q，1 - q）时,参与者1 选择（r，1- r）的期望收益为<br>
+$$
+\pi_1(q)=rq(-1)+r(1-q)1+(1-r)q1+(1-r)(1-q)(-1)=(2q+1)+r(2-4q)
+$$
+可以得到最优反应为，并记为
+$$
+r&rsquo;(q)=
+\arg \max_{0\leq r\leq1} \pi_1(q)=
+\begin{cases}
+1,&amp; q&lt;1/2\
+0,&amp; q&gt;1/2\
+\forall r\in[0,1],&amp; q=1/2
+\end{cases}
+$$
+称上式为参与者1的<strong>最佳反应对应</strong>。</p>
+<p>一般地，在只有两个参与者的标准式博弈中，J表示S1中包含的纯战略的个数，K表示S2中的纯战略个数，则
+$$
+S_1={s_{11},&hellip;,s_{1J}},S_2={s_{21},&hellip;,s_{2K}}
+$$
+如果参与者1推断参与者2将以$(p_{21},&hellip;,p_{2K})$的概率选择对应的战略，则参与者1选择纯战略$s_{1j}$的期望收益为
+$$
+\sum_{k=1}^Kp_{2k}u_1(s_{1j},s_{2k})\tag{1.3.2}
+$$
+则参与者1以$(p_{11},&hellip;,p_{1J})$的概率选择混合战略时，参与者1的期望收益为
+$$
+v_1(P_1,P_2)=\sum_{j=1}^Jp_{1j}\sum_{k=1}^Kp_{2k}u_1(s_{1j},s_{2k})=\sum_{j=1}^J\sum_{k=1}^Kp_{1j}
+*p_{2k}u_1(s_{1j},s_{2k})\tag{1.3.3}
+$$
+根据上式，参与者1选择混合战略的P1的期望收益，等于按照(1.3.2)给出的每个纯战略${s_{11},&hellip;,s_{1j}}$的收益的加权和，其权重分别为各自的概率$(p_{11},&hellip;,p_{1j})$。</p>
+<p>那么参与者1的混合战略要成为对于参与者2战略P2的最优反应，那么其中任何一个大于零的$p_{1j}$对应的纯战略$s_{1j}$必须满足：
+$$
+\forall s_{1j}&rsquo;\in S_1,\sum_{k=1}^Kp_{2k}u_1(s_{1j},s_{2k})\geq\sum_{k=1}^Kp_{2k}u_1(s_{1j}&rsquo;,s_{2k})
+$$
+证明如下：
+$$
+假设\exists s_{1p}\in S_1,s.t.\sum_{k=1}^Kp_{2k}u_1(s_{1j},s_{2k})&lt;\sum_{k=1}^Kp_{2k}u_1(s_{1p},s_{2k})\
+记\sum_{k=1}^Kp_{2k}u_1(s_{1j},s_{2k})=u_{1j},则\
+\exists s_{1p}\in S_1,s.t.u_{1j}&lt;u_{1p},则有
+\p_{1j}u_{1j}+p_{1p}u_{1p}&lt;0*u_{1j}+(p_{1j}+p_{1p})u_{1p},也即该混合策略收益一定小于另外一个混合策略的收益，即\
+(p_{11},&hellip;,p_{1,j-1},0,p_{1,j+1},&hellip;,p_{1,p-1},(p_{1j}+p_{1p}),p_{1,p+1},&hellip;,p_{1J})
+\则这个混合策略不是最优反应
+$$
+这<strong>表明</strong>一个混合战略要成为P2的最佳反应，混合战略中的每一个概率大于0的纯战略也必须是对P2的最佳反应，或者说如果参与者1有n个纯战略都是P2的最优反应，则这些战略的全部或者部分线性组合形成的混合战略同样是参与者1对P2的最优反应。</p>
+<p>同理可得，如果参与者2推断参与者1以$(p_{11},&hellip;,p_{1J})$的概率选择$s_{11},&hellip;,s_{1J}$，则参与者2以概率$(p_{21},&hellip;,p_{2K})$选择策略${s_{21},&hellip;,s_{2K}}$的期望收益为
+$$
+v_2(P_1,P_2)=\sum_{k=1}^Kp_{2k}\sum_{j=1}^Jp_{1j}u_2(s_{1j},s_{2k})\=\sum_{k=1}^K\sum_{j=1}^Jp_{2k}p_{1j}u_2(s_{1j},s_{2k})
+$$
+最终可以给出混合战略的纳什均衡：</p>
+<p><strong>定义</strong>：在两个参与者标准式博弈中，混合战略$(P_1&rsquo;,P_2&rsquo;)$是纳什均衡的充要条件是每一个参与者的混合战略是另一个参与者混合战略的最优反应，即
+$$
+\forall P_1\in S_1,v_1(P_1&rsquo;,P_2&rsquo;)\geq v_1(P_1,P_2&rsquo;)\
+\forall P_2\in S_1,v_2(P_1&rsquo;,P_2&rsquo;)\geq v_2(P_1&rsquo;,P_2)
+$$
+同时成立。</p>
+<p>下面使用混合策略纳什均衡分析猜硬币博弈和性别博弈。</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>正面q</th>
+          <th>反面1-q</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>正面r</td>
+          <td>-1，1</td>
+          <td>1，-1</td>
+      </tr>
+      <tr>
+          <td>反面1-r</td>
+          <td>1，-1</td>
+          <td>-1，1</td>
+      </tr>
+  </tbody>
+</table>
+<p>首先使得(r,1-r)称为(q,1-q)的最优反应：
+$$
+r&rsquo;(q)=
+\begin{cases}
+1,&amp; q&lt;1/2\
+0,&amp; q&gt;1/2\
+\forall r\in[0,1],&amp; q=1/2
+\end{cases}
+$$
+再使得(q,1-q)称为(r,1-r)的最优反应：
+$$
+q&rsquo;(r)=
+\begin{cases}
+0,&amp; r&lt;1/2\
+1,&amp; r&gt;1/2\
+\forall q\in[0,1],&amp; r=1/2
+\end{cases}
+$$
+则交点(1/2,1/2)为混合战略纳什均衡。</p>
+<p>对于性别战博弈，</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>歌剧q</th>
+          <th>拳击1-q</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>歌剧r</td>
+          <td>2，1</td>
+          <td>0，0</td>
+      </tr>
+      <tr>
+          <td>拳击1-r</td>
+          <td>0，0</td>
+          <td>1，2</td>
+      </tr>
+  </tbody>
+</table>
+<p>当参与者2选择(q,1-q)时，参与者1选择歌剧的收益是2q,选择拳击的收益是1-q，则
+$$
+r&rsquo;(q)=
+\begin{cases}
+0,&amp;q&lt;1/3\
+1,&amp;q&gt;1/3\
+\forall r\in [0,1],&amp;q=1/3
+\end{cases}
+$$
+当参与者1选择(r,1-r)时，参与者选歌剧的收益是r，选择拳击的收益是2（1-r）,则
+$$
+q&rsquo;(r)=
+\begin{cases}
+0,&amp;r&lt;2/3\
+1,&amp;r&gt;2/3\
+\forall q\in [0,1],&amp;r=2/3
+\end{cases}
+$$
+则两个图像共有三个交点
+$$
+(0,0),(1,1),(2/3,1/3)
+$$
+<strong>结论</strong>：在任何博弈中，一个纳什均衡表现为参与者间最优反应对应的交点。</p>
+<p>对于纳什均衡存在性的说明————————————————————————————————————————————————</p>
+<h3 id="133-纳什定理">1.3.3 纳什定理<a hidden class="anchor" aria-hidden="true" href="#133-纳什定理">#</a></h3>
+<p>在n个参与者的标准式博弈
+$$
+G={S_1,&hellip;,S_n;u_1,&hellip;,u_n}
+$$
+中，如果n有限，且对于每个i，$S_i$有限，则博弈至少存在一个纳什均衡，均衡可能包含混合战略。</p>
+<p>证明：&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/blog4yifeng/posts/philosophize-this/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Philosophize This: Why Our Future is Being Slowly Cancelled</span>
+  </a>
+</nav>
+
+  </footer><script src="https://utteranc.es/client.js"
+        repo="YifengChen2023/blog4yifeng"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+  
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/blog4yifeng/">Yifeng&#39;s Online Space.</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

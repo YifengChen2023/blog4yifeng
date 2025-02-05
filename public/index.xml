@@ -6,8 +6,87 @@
     <description>Recent content on Yifeng&#39;s Online Space.</description>
     <generator>Hugo -- 0.143.0</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Feb 2025 01:25:33 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2025 23:58:54 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/blog4yifeng/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Static Game of Complete Information</title>
+      <link>http://localhost:1313/blog4yifeng/posts/static-game-of-complete-information/</link>
+      <pubDate>Tue, 04 Feb 2025 23:58:54 -0500</pubDate>
+      <guid>http://localhost:1313/blog4yifeng/posts/static-game-of-complete-information/</guid>
+      <description>&lt;h1 id=&#34;1-完全信息静态博弈&#34;&gt;1 完全信息静态博弈&lt;/h1&gt;
+&lt;p&gt;完全信息：每个参与者的收益函数在所有参与者之间是共同知识&lt;/p&gt;
+&lt;p&gt;静态博弈：各方同时行动，每个人的行动都会影响各自的收益，即收益函数不仅仅与个人自己的选择有关&lt;/p&gt;
+&lt;p&gt;如何描述一个博弈问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;博弈的三要素：参与者，策略集，收益&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如何求解博弈的解：严格劣战略，纳什均衡&lt;/p&gt;
+&lt;p&gt;四个应用模型：古诺模型/贝特兰德模型/最后要价仲裁/公共财产问题&lt;/p&gt;
+&lt;p&gt;混合战略均衡与纳什定理&lt;/p&gt;
+&lt;h2 id=&#34;11-博弈的标准表示和纳什均衡&#34;&gt;1.1 博弈的标准表示和纳什均衡&lt;/h2&gt;
+&lt;p&gt;囚徒困境可以使用双变量矩阵表来表示，习惯上将横行代表的参与者收益放在前面&lt;/p&gt;
+&lt;p&gt;博弈的标准表示：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;博弈的参与者&lt;/li&gt;
+&lt;li&gt;每个参与者可供选择的战略集&lt;/li&gt;
+&lt;li&gt;针对所有参与者可能选择的战略组合，每个参与者获得的收益&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;形式化定义：&lt;/p&gt;
+&lt;p&gt;记n个博弈者的标号为i，参与者i的战略空间为$S_i$，其中一个特定的战略为$s_i\in S_i$，令
+$$
+(s_1,s_2,&amp;hellip;,s_n)
+$$
+表示每个参与者选定一个战略形成的战略组合，令
+$$
+u_i(s_1,s_2,&amp;hellip;,s_n)
+$$
+表示参与者选择战略$s_1&amp;hellip;s_n$时，参与者$i$的收益。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在一个$n$人博弈的标准式表述中，用
+$$
+G={S_1, &amp;hellip;,S_n;u_1, &amp;hellip;,u_n}
+$$
+表示此博弈。&lt;/p&gt;
+&lt;h3 id=&#34;111-重复剔除严格劣策略&#34;&gt;1.1.1 重复剔除严格劣策略&lt;/h3&gt;
+&lt;p&gt;定义：一个严格劣策略是指，对于某个博弈方的某个策略，对于任何一个策略组合，该策略的收益均小于该博弈方选择某个其他策略的收益。&lt;/p&gt;
+&lt;p&gt;形式化定义：在标准式博弈
+$$
+G={S_1, &amp;hellip;,s_n;u_1,&amp;hellip;,u_n}
+$$
+中，令$s_i&amp;rsquo;,s_i&amp;rsquo;&amp;rsquo;$代表参与者i的两个可行战略组合。若对于其他战略者的每一个战略组合，i选择$s_i&amp;rsquo;$的收益均&lt;strong&gt;小于&lt;/strong&gt;其选择$s_i&amp;rsquo;&amp;rsquo;$的收益， 则称$s_i&amp;rsquo;$相对于$s_i&amp;rsquo;&amp;rsquo;$是严格劣策略：
+$$
+u_i(s_1, &amp;hellip;,s_{i-1},s_i&amp;rsquo;,s_{i+1},&amp;hellip;,s_n)&amp;lt;u_i(s_1, &amp;hellip;,s_{i-1},s_i&amp;rsquo;&amp;rsquo;,s_{i+1},&amp;hellip;,s_n)
+$$
+对其他参与者在其战略空间
+$$
+S_1, &amp;hellip;,S_{i-1},S_{i+1},&amp;hellip;,S_n
+$$
+中每一组可能的战略
+$$
+s_1, &amp;hellip;,s_{i-1},s_{i+1},&amp;hellip;,s_n
+$$
+都成立。&lt;/p&gt;
+&lt;p&gt;在解决博弈问题的时候可以使用重复剔除劣策略的方法来求得解。&lt;/p&gt;
+&lt;p&gt;缺陷是需要假定参与者是理性的是共同知识，经常是不精确的。&lt;/p&gt;
+&lt;h3 id=&#34;112-纳什均衡的导出和定义&#34;&gt;1.1.2 纳什均衡的导出和定义&lt;/h3&gt;
+&lt;p&gt;定义：在n个人参与的标准式博弈$G={S_1, &amp;hellip;,s_n;u_1,&amp;hellip;,u_n}$中，如果战略组合
+$$
+{s_1&amp;rsquo;, &amp;hellip;,s_n&amp;rsquo;}
+$$
+满足对每一个参与者i，$s_i&amp;rsquo;$是针对其他n-1个参与者所选战略
+$$
+{s_1&amp;rsquo;, &amp;hellip;,s_{i-1}&amp;rsquo;,s_{i+1}&amp;rsquo;,&amp;hellip;,s_n&amp;rsquo;}
+$$
+的&lt;strong&gt;最佳应对&lt;/strong&gt;，即
+$$
+u_i(s_1&amp;rsquo;,&amp;hellip;,s_{i-1}&amp;rsquo;,s_i&amp;rsquo;,s_{i+1}&amp;rsquo;,&amp;hellip;,s_n&amp;rsquo;)\geqslant u_i(s_1&amp;rsquo;,&amp;hellip;,s_{i-1}&amp;rsquo;,s_i,s_{i+1}&amp;rsquo;,&amp;hellip;,s_n&amp;rsquo;)\tag{1}
+$$
+则称战略组合
+$$
+{s_1&amp;rsquo;, &amp;hellip;,s_n&amp;rsquo;}
+$$
+是该博弈的一个纳什均衡。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Philosophize This: Why Our Future is Being Slowly Cancelled</title>
       <link>http://localhost:1313/blog4yifeng/posts/philosophize-this/</link>
@@ -23,6 +102,23 @@
       <pubDate>Tue, 04 Feb 2025 00:37:44 -0500</pubDate>
       <guid>http://localhost:1313/blog4yifeng/posts/my-first-post/</guid>
       <description>&lt;h2 id=&#34;introduction-to-soldiers&#34;&gt;Introduction to Soldiers&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/blog4yifeng/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog4yifeng/about/</guid>
+      <description>&lt;p&gt;Welcome to my blog! Here, I share my thoughts, experiences, and knowledge on various topics that interest me.&lt;/p&gt;
+&lt;h2 id=&#34;who-am-i&#34;&gt;Who Am I?&lt;/h2&gt;
+&lt;p&gt;I am a passionate writer and enthusiast in [your field of interest]. With years of experience in [related experience], I aim to provide valuable insights and information to my readers.&lt;/p&gt;
+&lt;h2 id=&#34;what-to-expect&#34;&gt;What to Expect&lt;/h2&gt;
+&lt;p&gt;On this blog, you will find articles on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[Topic 1]&lt;/li&gt;
+&lt;li&gt;[Topic 2]&lt;/li&gt;
+&lt;li&gt;[Topic 3]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope you enjoy reading my posts and find them helpful. Feel free to reach out to me through the contact page if you have any questions or suggestions.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

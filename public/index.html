@@ -60,6 +60,22 @@
 
     </style>
 </noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
 </head>
 
 <body class="list" id="top">
@@ -101,8 +117,8 @@
                 </button>
                 <ul class="lang-switch"><li>|</li>
                     <li>
-                        <a href="http://localhost:1313/blog4yifeng/fr/" title="About me"
-                            aria-label="About me">About me</a>
+                        <a href="http://localhost:1313/blog4yifeng/fr/" title="Motto"
+                            aria-label="Motto">Motto</a>
                     </li>
                 </ul>
             </div>
@@ -126,6 +142,11 @@
             <li>
                 <a href="http://localhost:1313/blog4yifeng/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/about/" title="About">
+                    <span>About</span>
                 </a>
             </li>
         </ul>
@@ -169,6 +190,35 @@
 </div>
 
     </footer>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Static Game of Complete Information
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1 完全信息静态博弈 完全信息：每个参与者的收益函数在所有参与者之间是共同知识
+静态博弈：各方同时行动，每个人的行动都会影响各自的收益，即收益函数不仅仅与个人自己的选择有关
+如何描述一个博弈问题：
+博弈的三要素：参与者，策略集，收益 如何求解博弈的解：严格劣战略，纳什均衡
+四个应用模型：古诺模型/贝特兰德模型/最后要价仲裁/公共财产问题
+混合战略均衡与纳什定理
+1.1 博弈的标准表示和纳什均衡 囚徒困境可以使用双变量矩阵表来表示，习惯上将横行代表的参与者收益放在前面
+博弈的标准表示：
+博弈的参与者 每个参与者可供选择的战略集 针对所有参与者可能选择的战略组合，每个参与者获得的收益 形式化定义：
+记n个博弈者的标号为i，参与者i的战略空间为$S_i$，其中一个特定的战略为$s_i\in S_i$，令 $$ (s_1,s_2,…,s_n) $$ 表示每个参与者选定一个战略形成的战略组合，令 $$ u_i(s_1,s_2,…,s_n) $$ 表示参与者选择战略$s_1…s_n$时，参与者$i$的收益。
+定义
+在一个$n$人博弈的标准式表述中，用 $$ G={S_1, …,S_n;u_1, …,u_n} $$ 表示此博弈。
+1.1.1 重复剔除严格劣策略 定义：一个严格劣策略是指，对于某个博弈方的某个策略，对于任何一个策略组合，该策略的收益均小于该博弈方选择某个其他策略的收益。
+形式化定义：在标准式博弈 $$ G={S_1, …,s_n;u_1,…,u_n} $$ 中，令$s_i’,s_i’’$代表参与者i的两个可行战略组合。若对于其他战略者的每一个战略组合，i选择$s_i’$的收益均小于其选择$s_i’’$的收益， 则称$s_i’$相对于$s_i’’$是严格劣策略： $$ u_i(s_1, …,s_{i-1},s_i’,s_{i&#43;1},…,s_n)&lt;u_i(s_1, …,s_{i-1},s_i’’,s_{i&#43;1},…,s_n) $$ 对其他参与者在其战略空间 $$ S_1, …,S_{i-1},S_{i&#43;1},…,S_n $$ 中每一组可能的战略 $$ s_1, …,s_{i-1},s_{i&#43;1},…,s_n $$ 都成立。
+在解决博弈问题的时候可以使用重复剔除劣策略的方法来求得解。
+缺陷是需要假定参与者是理性的是共同知识，经常是不精确的。
+1.1.2 纳什均衡的导出和定义 定义：在n个人参与的标准式博弈$G={S_1, …,s_n;u_1,…,u_n}$中，如果战略组合 $$ {s_1’, …,s_n’} $$ 满足对每一个参与者i，$s_i’$是针对其他n-1个参与者所选战略 $$ {s_1’, …,s_{i-1}’,s_{i&#43;1}’,…,s_n’} $$ 的最佳应对，即 $$ u_i(s_1’,…,s_{i-1}’,s_i’,s_{i&#43;1}’,…,s_n’)\geqslant u_i(s_1’,…,s_{i-1}’,s_i,s_{i&#43;1}’,…,s_n’)\tag{1} $$ 则称战略组合 $$ {s_1’, …,s_n’} $$ 是该博弈的一个纳什均衡。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-04 23:58:54 -0500 EST'>February 4, 2025</span>&nbsp;·&nbsp;4 min</footer>
+  <a class="entry-link" aria-label="post link to Static Game of Complete Information" href="http://localhost:1313/blog4yifeng/posts/static-game-of-complete-information/"></a>
 </article>
 
 <article class="post-entry"> 

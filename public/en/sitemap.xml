@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blog4yifeng/posts/philosophize-this/</loc>
-    <lastmod>2025-02-04T01:25:33-05:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/blog4yifeng/posts/</loc>
-    <lastmod>2025-02-04T01:25:33-05:00</lastmod>
+    <lastmod>2025-02-04T23:58:54-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog4yifeng/posts/static-game-of-complete-information/</loc>
+    <lastmod>2025-02-04T23:58:54-05:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog4yifeng/</loc>
-    <lastmod>2025-02-04T01:25:33-05:00</lastmod>
+    <lastmod>2025-02-04T23:58:54-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -20,6 +20,9 @@
                 hreflang="en"
                 href="http://localhost:1313/blog4yifeng/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/blog4yifeng/posts/philosophize-this/</loc>
+    <lastmod>2025-02-04T01:25:33-05:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog4yifeng/categories/</loc>
     <lastmod>2025-02-04T00:37:44-05:00</lastmod>
@@ -67,6 +70,8 @@
   </url><url>
     <loc>http://localhost:1313/blog4yifeng/categories/themes/</loc>
     <lastmod>2025-02-04T00:37:44-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog4yifeng/about/</loc>
   </url><url>
     <loc>http://localhost:1313/blog4yifeng/archives/</loc>
   </url><url>

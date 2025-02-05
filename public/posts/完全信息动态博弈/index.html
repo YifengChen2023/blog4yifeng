@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/blog4yifeng/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog4yifeng/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Yifeng&#39;s Online Space.</title>
+<meta name="keywords" content="">
+<meta name="description" content="2 完全信息动态博弈
+2.1 博弈的扩展型
+对比博弈的标准型：
+
+参与人
+策略集
+收益
+
+扩展型：
+
+参与人
+何时行动
+行动集
+信息
+收益
+
+概念：
+策略：关于行动的完整计划，明确了参与者可能会遇到的每一种情况下可行动的选择
+信息集：满足以下条件的决策节点的集合：
+
+在此信息下每一个节点都轮到该参与者行动
+当博弈的进行达到信息集中的一个节点，该行动的参与者并不知道达到了（或者没有达到）信息集中的哪一个节点，因此同一信息集中的节点在时间上是不可区分的。
+
+2.2 市场博弈-逆向归纳法
+$$
+1:\begin{cases}
+O,(0,4)\I,2:
+\begin{cases}
+A,&amp;(2,2)\B,&amp;(-1,-1)
+\end{cases}
+\end{cases}
+$$
+标准型：
+
+参与人 1，2
+策略集：S1=I/O,S2=R/W
+收益
+
+
+  
+      
+          
+          R
+          W
+      
+  
+  
+      
+          O
+          0，4
+          0，4
+      
+      
+          I
+          2，2
+          -1，-1
+      
+  
+
+发现有两个纳什均衡，但是OW的纳什均衡是没有办法达到的，这就是标准型没有办法研究的动态博弈的纳什均衡。
+概念：
+
+贯序理性：参与人所采取的策略应该定义出他的每个信息集的最优行动，包括其事先并不相信在某一时刻会达到的哪些信息集。
+条件劣策略：对于参与人的某个策略来说，如果在到达参与人的某个信息集的情况下，存在另一个策略严格占优于它，那么原策略就是条件劣策略。
+逆向归纳法：一种从后往前（从博弈树末端的信息集推到博弈开始时的信息集）分析博弈的方法。在可以到达终止点的假定下，依次删去每个信息集中劣策略的行动
+
+2.2.1 用逆向归纳法解市场博弈问题
+首先删去信息集2中的(-1,-1)，因为对于参与者2来说，他严格劣于(2,2)，则对于信息集1，删除(0,4)，因为对于参与者1来说，他严格劣于(2,2).
+故最终的博弈解为(2,2)。
+2.3 完全且完美信息动态博弈
+
+行动时是顺序发生的
+下一步行动选择之前，所有以前的行动都可以被观察到
+每一可能的行动组合下，参与者的收益都是共同知识
+
+我们用逆向归纳法解此类问题。
+2.3.1 手雷博弈
+
+参与者1从可行集A1中选择一个行动a1
+参与者2观察到a1后，从可行集A2中选择一个行动a2
+两人的收益分别为$u_1(a_1,a_2),u_2(a_1,a_2)$
+
+当在博弈的第二阶段参与者2行动时，由于此前参与者1已经行动a1，那么他面临的决策问题就是
+$$
+\max_{a_2\in A_2}u_2(a_1,a_2)
+$$
+假定对于A_1中的每一个a_1，参与者2的最优化问题只有唯一的解，用$R_2(a_1)$表示，这就是参与者2对于参与者1的行动的最优反应。
+由于参与者1能够和参与者2一样解除上述的问题，参与者1可以预测到参与者2对于参与者1的每一个可能的行动a_1所做出的反应$R_2(a_1)$，故1在第一阶段面临的决策问题是
+$$
+\max_{a_1\in A_1}u_1(a_1,R_2(a_1))
+$$
+假设参与者1的这一最优化问题同样有唯一的解，表示为$a_1^$，我们称
+$$
+(a_1^,R_2(a_1^*))
+$$
+为这一博弈的逆向归纳解">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog4yifeng/posts/%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/">
+<link crossorigin="anonymous" href="/blog4yifeng/assets/css/stylesheet.a67ae7575b0fa5f538ded5043eed91676b249558260d75a7a00e2448853aca06.css" integrity="sha256-pnrnV1sPpfU43tUEPu2RZ2sklVgmDXWnoA4kSIU6ygY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/blog4yifeng/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/blog4yifeng/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/blog4yifeng/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/blog4yifeng/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/blog4yifeng/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog4yifeng/posts/%E5%AE%8C%E5%85%A8%E4%BF%A1%E6%81%AF%E5%8A%A8%E6%80%81%E5%8D%9A%E5%BC%88/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/blog4yifeng/" accesskey="h" title="Yifeng&#39;s Online Space. (Alt + H)">Yifeng&#39;s Online Space.</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="http://localhost:1313/blog4yifeng/fr/" title="Motto"
+                            aria-label="Motto">Motto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blog4yifeng/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/blog4yifeng/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog4yifeng/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">3 min&nbsp;|&nbsp;<a href="https://github.com/YifengChen2023/blog4yifeng/tree/main/content/posts/%e5%ae%8c%e5%85%a8%e4%bf%a1%e6%81%af%e5%8a%a8%e6%80%81%e5%8d%9a%e5%bc%88.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#2-%e5%ae%8c%e5%85%a8%e4%bf%a1%e6%81%af%e5%8a%a8%e6%80%81%e5%8d%9a%e5%bc%88" aria-label="2 完全信息动态博弈">2 完全信息动态博弈</a><ul>
+                        
+                <li>
+                    <a href="#21-%e5%8d%9a%e5%bc%88%e7%9a%84%e6%89%a9%e5%b1%95%e5%9e%8b" aria-label="2.1 博弈的扩展型">2.1 博弈的扩展型</a></li>
+                <li>
+                    <a href="#22-%e5%b8%82%e5%9c%ba%e5%8d%9a%e5%bc%88-%e9%80%86%e5%90%91%e5%bd%92%e7%ba%b3%e6%b3%95" aria-label="2.2 市场博弈-逆向归纳法">2.2 市场博弈-逆向归纳法</a><ul>
+                        
+                <li>
+                    <a href="#221-%e7%94%a8%e9%80%86%e5%90%91%e5%bd%92%e7%ba%b3%e6%b3%95%e8%a7%a3%e5%b8%82%e5%9c%ba%e5%8d%9a%e5%bc%88%e9%97%ae%e9%a2%98" aria-label="2.2.1 用逆向归纳法解市场博弈问题">2.2.1 用逆向归纳法解市场博弈问题</a></li></ul>
+                </li>
+                <li>
+                    <a href="#23-%e5%ae%8c%e5%85%a8%e4%b8%94%e5%ae%8c%e7%be%8e%e4%bf%a1%e6%81%af%e5%8a%a8%e6%80%81%e5%8d%9a%e5%bc%88" aria-label="2.3 完全且完美信息动态博弈">2.3 完全且完美信息动态博弈</a><ul>
+                        
+                <li>
+                    <a href="#231-%e6%89%8b%e9%9b%b7%e5%8d%9a%e5%bc%88" aria-label="2.3.1 手雷博弈">2.3.1 手雷博弈</a></li>
+                <li>
+                    <a href="#232-%e6%96%af%e5%a1%94%e5%85%8b%e5%b0%94%e8%b4%9d%e9%87%8c%e5%8f%8c%e5%a4%b4%e5%9e%84%e6%96%ad%e6%a8%a1%e5%9e%8b" aria-label="2.3.2 斯塔克尔贝里双头垄断模型">2.3.2 斯塔克尔贝里双头垄断模型</a></li>
+                <li>
+                    <a href="#233-%e9%87%8c%e6%98%82%e6%83%95%e5%a4%ab%e7%9a%84%e5%b7%a5%e4%bc%9a%e6%a8%a1%e5%9e%8b" aria-label="2.3.3 里昂惕夫的工会模型">2.3.3 里昂惕夫的工会模型</a></li>
+                <li>
+                    <a href="#234-%e8%b4%af%e5%ba%8f%e8%b0%88%e5%88%a4" aria-label="2.3.4 贯序谈判">2.3.4 贯序谈判</a></li></ul>
+                </li>
+                <li>
+                    <a href="#24-%e5%ae%8c%e5%85%a8%e9%9d%9e%e5%ae%8c%e7%be%8e%e4%bf%a1%e6%81%af%e4%b8%a4%e9%98%b6%e6%ae%b5%e5%8d%9a%e5%bc%88" aria-label="2.4 完全非完美信息两阶段博弈">2.4 完全非完美信息两阶段博弈</a><ul>
+                        
+                <li>
+                    <a href="#241-%e9%93%b6%e8%a1%8c%e6%8c%a4%e6%8f%90%e6%a8%a1%e5%9e%8b" aria-label="2.4.1 银行挤提模型">2.4.1 银行挤提模型</a></li>
+                <li>
+                    <a href="#242-%e5%85%b3%e7%a8%8e%e4%b8%8e%e5%9b%bd%e9%99%85%e5%b8%82%e5%9c%ba%e7%9a%84%e4%b8%8d%e5%ae%8c%e5%85%a8%e7%ab%9e%e4%ba%89" aria-label="2.4.2 关税与国际市场的不完全竞争">2.4.2 关税与国际市场的不完全竞争</a></li></ul>
+                </li>
+                <li>
+                    <a href="#25-%e9%87%8d%e5%a4%8d%e5%8d%9a%e5%bc%88" aria-label="2.5 重复博弈">2.5 重复博弈</a><ul>
+                        
+                <li>
+                    <a href="#251-%e4%b8%a4%e9%98%b6%e6%ae%b5%e9%87%8d%e5%a4%8d%e5%8d%9a%e5%bc%88" aria-label="2.5.1 两阶段重复博弈">2.5.1 两阶段重复博弈</a></li>
+                <li>
+                    <a href="#252-%e6%97%a0%e9%99%90%e9%87%8d%e5%a4%8d%e5%8d%9a%e5%bc%88" aria-label="2.5.2 无限重复博弈">2.5.2 无限重复博弈</a><ul>
+                        
+                <li>
+                    <a href="#252-a-%e8%af%81%e6%98%8e%e8%a7%a6%e5%8f%91%e6%88%98%e7%95%a5%e6%98%af%e6%97%a0%e9%99%90%e9%87%8d%e5%a4%8d%e5%8d%9a%e5%bc%88%e7%9a%84%e7%ba%b3%e4%bb%80%e5%9d%87%e8%a1%a1" aria-label="2.5.2 A 证明触发战略是无限重复博弈的纳什均衡">2.5.2 A 证明触发战略是无限重复博弈的纳什均衡</a></li>
+                <li>
+                    <a href="#252-b-%e8%af%81%e6%98%8e%e8%a7%a6%e5%8f%91%e6%88%98%e7%95%a5%e6%98%af%e6%97%a0%e9%99%90%e9%87%8d%e5%a4%8d%e5%8d%9a%e5%bc%88%e7%9a%84%e5%ad%90%e5%8d%9a%e5%bc%88%e7%b2%be%e7%82%bc%e8%a7%a3" aria-label="2.5.2 B 证明触发战略是无限重复博弈的子博弈精炼解">2.5.2 B 证明触发战略是无限重复博弈的子博弈精炼解</a></li>
+                <li>
+                    <a href="#252-c-%e6%97%a0%e9%99%90%e9%87%8d%e5%a4%8d%e5%8d%9a%e5%bc%88%e5%ae%9a%e7%90%86" aria-label="2.5.2 C 无限重复博弈定理">2.5.2 C 无限重复博弈定理</a></li></ul>
+                </li>
+                <li>
+                    <a href="#253-%e5%8f%a4%e8%af%ba%e5%8f%8c%e5%a4%b4%e5%9e%84%e6%96%ad%e4%b8%8b%e7%9a%84%e5%85%b1%e8%b0%8b" aria-label="2.5.3 古诺双头垄断下的共谋">2.5.3 古诺双头垄断下的共谋</a></li></ul>
+                </li>
+                <li>
+                    <a href="#26-%e5%ae%8c%e5%85%a8%e9%9d%9e%e5%ae%8c%e7%be%8e%e4%bf%a1%e6%81%af%e5%8a%a8%e6%80%81%e5%8d%9a%e5%bc%88" aria-label="2.6 完全非完美信息动态博弈">2.6 完全非完美信息动态博弈</a><ul>
+                        
+                <li>
+                    <a href="#261-%e5%8d%9a%e5%bc%88%e7%9a%84%e6%89%a9%e5%b1%95%e5%bc%8f%e8%a1%a8%e8%bf%b0" aria-label="2.6.1 博弈的扩展式表述">2.6.1 博弈的扩展式表述</a></li>
+                <li>
+                    <a href="#262-%e5%ad%90%e5%8d%9a%e5%bc%88%e7%b2%be%e7%82%bc%e7%ba%b3%e4%bb%80%e5%9d%87%e8%a1%a1" aria-label="2.6.2 子博弈精炼纳什均衡">2.6.2 子博弈精炼纳什均衡</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="2-完全信息动态博弈">2 完全信息动态博弈<a hidden class="anchor" aria-hidden="true" href="#2-完全信息动态博弈">#</a></h1>
+<h2 id="21-博弈的扩展型">2.1 博弈的扩展型<a hidden class="anchor" aria-hidden="true" href="#21-博弈的扩展型">#</a></h2>
+<p>对比博弈的标准型：</p>
+<ul>
+<li>参与人</li>
+<li>策略集</li>
+<li>收益</li>
+</ul>
+<p>扩展型：</p>
+<ul>
+<li>参与人</li>
+<li>何时行动</li>
+<li>行动集</li>
+<li>信息</li>
+<li>收益</li>
+</ul>
+<p>概念：</p>
+<p>策略：关于行动的完整计划，明确了参与者可能会遇到的每一种情况下可行动的选择</p>
+<p>信息集：满足以下条件的决策节点的集合：</p>
+<ol>
+<li>在此信息下每一个节点都轮到该参与者行动</li>
+<li>当博弈的进行达到信息集中的一个节点，该行动的参与者并不知道达到了（或者没有达到）信息集中的哪一个节点，因此同一信息集中的节点在时间上是不可区分的。</li>
+</ol>
+<h2 id="22-市场博弈-逆向归纳法">2.2 市场博弈-逆向归纳法<a hidden class="anchor" aria-hidden="true" href="#22-市场博弈-逆向归纳法">#</a></h2>
+<p>$$
+1:\begin{cases}
+O,(0,4)\I,2:
+\begin{cases}
+A,&amp;(2,2)\B,&amp;(-1,-1)
+\end{cases}
+\end{cases}
+$$</p>
+<p>标准型：</p>
+<ul>
+<li>参与人 1，2</li>
+<li>策略集：S1=I/O,S2=R/W</li>
+<li>收益</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>R</th>
+          <th>W</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>O</td>
+          <td>0，4</td>
+          <td>0，4</td>
+      </tr>
+      <tr>
+          <td>I</td>
+          <td>2，2</td>
+          <td>-1，-1</td>
+      </tr>
+  </tbody>
+</table>
+<p>发现有两个纳什均衡，但是OW的纳什均衡是没有办法达到的，这就是标准型没有办法研究的动态博弈的纳什均衡。</p>
+<p>概念：</p>
+<ul>
+<li>贯序理性：参与人所采取的策略应该定义出他的每个信息集的最优行动，包括其事先并不相信在某一时刻会达到的哪些信息集。</li>
+<li>条件劣策略：对于参与人的某个策略来说，如果在到达参与人的某个信息集的情况下，存在另一个策略严格占优于它，那么原策略就是条件劣策略。</li>
+<li>逆向归纳法：<strong>一种从后往前（从博弈树末端的信息集推到博弈开始时的信息集）分析博弈的方法。在可以到达终止点的假定下，依次删去每个信息集中劣策略的行动</strong></li>
+</ul>
+<h3 id="221-用逆向归纳法解市场博弈问题">2.2.1 用逆向归纳法解市场博弈问题<a hidden class="anchor" aria-hidden="true" href="#221-用逆向归纳法解市场博弈问题">#</a></h3>
+<p>首先删去信息集2中的(-1,-1)，因为对于参与者2来说，他严格劣于(2,2)，则对于信息集1，删除(0,4)，因为对于参与者1来说，他严格劣于(2,2).</p>
+<p>故最终的博弈解为(2,2)。</p>
+<h2 id="23-完全且完美信息动态博弈">2.3 完全且完美信息动态博弈<a hidden class="anchor" aria-hidden="true" href="#23-完全且完美信息动态博弈">#</a></h2>
+<ul>
+<li>行动时是顺序发生的</li>
+<li>下一步行动选择之前，所有以前的行动都可以被观察到</li>
+<li>每一可能的行动组合下，参与者的收益都是共同知识</li>
+</ul>
+<p>我们用逆向归纳法解此类问题。</p>
+<h3 id="231-手雷博弈">2.3.1 手雷博弈<a hidden class="anchor" aria-hidden="true" href="#231-手雷博弈">#</a></h3>
+<ol>
+<li>参与者1从可行集A1中选择一个行动a1</li>
+<li>参与者2观察到a1后，从可行集A2中选择一个行动a2</li>
+<li>两人的收益分别为$u_1(a_1,a_2),u_2(a_1,a_2)$</li>
+</ol>
+<p>当在博弈的第二阶段参与者2行动时，由于此前参与者1已经行动a1，那么他面临的决策问题就是
+$$
+\max_{a_2\in A_2}u_2(a_1,a_2)
+$$
+假定对于A_1中的每一个a_1，参与者2的最优化问题只有唯一的解，用$R_2(a_1)$表示，这就是参与者2对于参与者1的行动的<strong>最优反应</strong>。</p>
+<p>由于参与者1能够和参与者2一样解除上述的问题，参与者1可以预测到参与者2对于参与者1的每一个可能的行动a_1所做出的反应$R_2(a_1)$，故1在第一阶段面临的决策问题是
+$$
+\max_{a_1\in A_1}u_1(a_1,R_2(a_1))
+$$
+假设参与者1的这一最优化问题同样有唯一的解，表示为$a_1^<em>$，我们称
+$$
+(a_1^</em>,R_2(a_1^*))
+$$
+为这一博弈的<strong>逆向归纳解</strong></p>
+<p>逆向归纳解不含有不可置信的威胁，参与者1预测参与者2将对1可能选择的任何行动做出最优反应，这一预测派出了参与者2的不可置信的威胁。</p>
+<h3 id="232-斯塔克尔贝里双头垄断模型">2.3.2 斯塔克尔贝里双头垄断模型<a hidden class="anchor" aria-hidden="true" href="#232-斯塔克尔贝里双头垄断模型">#</a></h3>
+<p>属于<strong>完全且完美信息的动态博弈</strong></p>
+<p>博弈的时间顺序</p>
+<ol>
+<li>企业1选择产量$q_1$</li>
+<li>企业2观测到$q_1$选择$q_2$</li>
+<li>企业的收益函数</li>
+</ol>
+<p>$$
+\pi_i(q_i,q_j)=q_i(a-q_i-q_j-c)
+$$</p>
+<p><strong>逆向归纳解：</strong></p>
+<p>首先计算企业2对于企业1任意产量的最优反应$R_2(q_1)$，应满足
+$$
+\max_{q_1\geq 0}\pi_2(q_1,q_2)=\max_{q_1\geq0}q_2(a-q_1-q_2-c)
+$$
+由一阶条件得
+$$
+q_2^*(q_1)=R_2(q_1)=\frac {a-q_1-c} 2
+$$
+在博弈的第一阶段企业一的决策问题可以表述为
+$$
+\max_{q_1\geq0}\pi_1(q_1,R_2(q_1))=\max_{q_1\geq0}q_1\frac {a-q_1-c} 2
+$$</p>
+<p>有一阶条件
+$$
+q_1^<em>=\frac{a-c}2,q_2^</em>=\frac{a-c}4
+$$</p>
+<p>回顾古诺模型的<strong>纳什均衡解</strong>，每一企业的产量为$\frac {a-c}3$也就是说此时的逆向均衡解总产量比古诺纳什均衡解的总产量要高，此时的市场出清价格要低，与此同时，企业一也可以选择古诺均衡产量使得整个模型的利润水平增加，但是却选择了其他产量这说明企业一在逆向归纳解中的了收益要高于古诺博弈中的收益。但是该博弈中时长出清价格降低了，其总利润水平也会下降，那么和古诺博弈的结果相比，企业二的收益会下降。</p>
+<p>这里揭示出一个道理，一个决策者了解更多的信息的时候可能会使得自己受损。</p>
+<h3 id="233-里昂惕夫的工会模型">2.3.3 里昂惕夫的工会模型<a hidden class="anchor" aria-hidden="true" href="#233-里昂惕夫的工会模型">#</a></h3>
+<ol>
+<li>博弈方 企业，垄断工会</li>
+<li>行动顺序 工会&ndash;w&ndash;企业&ndash;l</li>
+<li>行动集 w，l</li>
+<li>信息集 w&mdash;l</li>
+<li>收益 工会U(w,l)，双增函数，企业$\pi(w,l)=r(l)-wl$，r为增的凹函数为</li>
+</ol>
+<p>逆向归纳解（略去，参考教材）</p>
+<h3 id="234-贯序谈判">2.3.4 贯序谈判<a hidden class="anchor" aria-hidden="true" href="#234-贯序谈判">#</a></h3>
+<p>参与人1，2就一美元的分配进行谈判。他们轮流提出方案：首先参与人1提出一个分配方案$s_1$，参与人2可以接受或者拒绝；如果参与人2拒绝，就有参与人2提出一个分配方案$s_2$，参与人1可以选择接受或者拒绝；如果参与人1拒绝，则外生决定分配方案s。注意s均为给参与人1的收益。此时考虑贴现因子$\delta$。我们考虑当接受和拒绝并无差异的时候，参与人总是选择接受条件</p>
+<p>求解逆向归纳解</p>
+<p>首先求解参与人2在第二阶段，可能提出的分配方案。参与人1拒绝参与人2的提议，将会在第三阶段获得收益s但是由于贴现值的存在，参与人1接受参与人2的提议当且仅当
+$$
+s_2\geq\delta s
+$$
+故参与人2在第二阶段提出的分配方案给自己的收益
+$$
+\begin{cases}
+\delta(1-s),&amp;s_2&lt;\delta s
+\1-\delta s,&amp;s_2=\delta s
+\1-s2, &amp;s_2&gt;\delta s
+\end{cases}
+$$
+则参与人2在此阶段最佳反应是
+$$
+s_2^<em>=\delta s
+$$
+也就是说在博弈进行到第二阶段的时候，参与人2将选择$s_2^</em>$，参与人1选择接受条件。由于参与人1也可和参与人2一样解出参与人2在第二阶段的决策问题，参与人1也就知道参与人2通过拒绝参与人1提出的条件，在第二阶段可以获得$1-s_2^<em>$，但下一阶段得到的$1-s_2^</em>$在第一阶段只有$\delta (1-s_2^<em>)$，那么只有在第一阶段参与人1提供参与人2超过该值的条件$1-s_1$时，才会选择接受：
+$$
+1-s_1\geq\delta (1-s_2^</em>),or,s_1\leq 1-\delta+\delta^2s \tag{condition}
+$$
+故参与人1在第一阶段提出的分配方案给自己的收益所有情况为
+$$
+\begin{cases}
+s_1,&amp;s_1\le1-\delta+\delta^2s
+\\delta^2 s,&amp;s_1\gt1-\delta+\delta^2s\tag{需要将第二阶段的收益在第一阶段进行贴现}
+\end{cases}
+$$
+则参与人1在第一阶段的最佳反应是
+$$
+s_1^<em>=1-\delta+\delta^2s
+$$
+这样在三阶段博弈的逆向归纳解中，参与人1向参与人2提出分配方案$(s_1^</em>,1-s_1^*)$，参与人2接受。</p>
+<h2 id="24-完全非完美信息两阶段博弈">2.4 完全非完美信息两阶段博弈<a hidden class="anchor" aria-hidden="true" href="#24-完全非完美信息两阶段博弈">#</a></h2>
+<p>和完全完美信息动态博弈相同，我们继续假定博弈存在着一系列阶段，下一阶段开始之前参与者可观察到前面所有阶段的行动，但是在非完美的情况下，在<strong>每一阶段会存在着同时行动</strong>。</p>
+<p>我们将以下类型的简单博弈称为，<strong>完全非完美信息两阶段博弈</strong></p>
+<ol>
+<li>参与者1和参与者2同时从各自的可行集$A_1$和$A_2$中选择行动$a_1$和$a_2$。</li>
+<li>参与者2和参与者4观察到第一阶段的结果$$(a_1,a_2)$$，然后同时从各自的可行集$A_3$和$A_4$中选择行动$a_3$和$a_4$</li>
+<li>收益为$u_i(a_1,a_2,a_3,a_4)$</li>
+</ol>
+<p>可以进行更改，注意我们解决此类问题使用的方法，仍然沿用了逆向归纳的思路，但是这里从博弈的最后一个阶段逆向推到的第一步就包含了求解一个真正的博弈，而不是前一节的单人最优化的决策问题。</p>
+<p><strong>为使得问题简化，我们假设在本节中，对于第一阶段博弈的每一个可能的结果$a_1,a_2$，其后第二阶段博弈有唯一的纳什均衡，并表示为$a_3^<em>(a_1,a_2),a_4^</em>(a_1,a_2)$</strong></p>
+<p>同时假定$(a_1^<em>,a_2^</em>)$为一阶段同时行动博弈的唯一纳什均衡，我们称$(a_1^<em>,a_2^</em>,a_3^<em>(a_1^</em>,a_2^<em>),a_4^</em>(a_1^<em>,a_2^</em>))$为这一两阶段博弈的<strong>子博弈精炼解</strong>。</p>
+<p>完全非完美信息两阶段博弈的子博弈精炼解和完全且完美博弈中的逆向归纳解<strong>在性质上是一致的</strong>。</p>
+<p>如果参与者3和4威胁在后面的第二阶段博弈中，他们将不选择纳什均衡下的行动，参与人1和2是不会相信的，因为当博弈确实进行到第 二阶段时，参与人3和4中至少有一个人不愿把威胁变为现实（恰好是因为它不是第二阶段博弈的纳什均衡）.另一方面，假设参与者1就是参与者3，并且参与者1在第一阶段并不选择$a_1^<em>$，参与者4就会重新考虑参与者3在第二阶段将会选择$a_3^</em>(a_1,a_2)$的假定。</p>
+<h3 id="241-银行挤提模型">2.4.1 银行挤提模型<a hidden class="anchor" aria-hidden="true" href="#241-银行挤提模型">#</a></h3>
+<p>R&gt;D，D&gt;r&gt;D/2</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">日期一</th>
+          <th style="text-align: center">提款</th>
+          <th style="text-align: center">不提</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">提款</td>
+          <td style="text-align: center">r,r</td>
+          <td style="text-align: center">D,2r-D</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">不提</td>
+          <td style="text-align: center">2r-D,D</td>
+          <td style="text-align: center">下一阶段</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">日期二</th>
+          <th style="text-align: center">提款</th>
+          <th style="text-align: center">不提</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">提款</td>
+          <td style="text-align: center">R,R</td>
+          <td style="text-align: center">2R-D,D</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">不提</td>
+          <td style="text-align: center">D,2R-D</td>
+          <td style="text-align: center">R,R</td>
+      </tr>
+  </tbody>
+</table>
+<p>有两个子博弈精炼解，两个投资人都在日期一提款，或者都在日期二提款。</p>
+<h3 id="242-关税与国际市场的不完全竞争">2.4.2 关税与国际市场的不完全竞争<a hidden class="anchor" aria-hidden="true" href="#242-关税与国际市场的不完全竞争">#</a></h3>
+<p>考虑两个完全相同的国家。分别用1,2 表示。每个国家有一个政府负责确定关税税率，一个企业制造产品供给本国的消费者及出口，和一群消费者在国内市场购买本国企业或外国企业生产的产品。</p>
+<p>国家i的市场中的出清价格为
+$$
+p_i(Q_i)=a-Q_i
+$$
+企业$i$为本国生产$h_i$，出口$e_i$，边际成本为$c$，则
+$$
+Q_i=h_i+e_j\C_(h_i,e_i)=c(h_i+e_i)
+$$
+支付给政府$j$的关税为
+$$
+t_je_i
+$$
+博弈的时间顺序为</p>
+<ol>
+<li>政府同时选择关税税率$t_1$和$t_2$</li>
+<li>企业观察到关税税率决定产量$(h_1,e_1),(h_2,e_2)$</li>
+<li>企业$i$的收益为利润额，政府$i$的收益为本国的总福利</li>
+</ol>
+<p>$$
+\pi_i(t_i,t_j,h_i,e_i,h_j,e_j)=[a-(h_i+e_j)]h_i+[a-(h_j+e_i)]e_i-c(h_i+e_i)-t_je_i\
+w_i(t_i,t_j,h_i,e_i,h_j,e_j)=\frac1 2Q_i^2+\pi_i(t_i,t_j,h_i,e_i,h_j,e_j)+t_ie_j
+$$</p>
+<p>假定此时政府已经选定了关税$(t_1,t_2)$，如果$(h_i^<em>,e_i^</em>,h_j^<em>,e_j^</em>)$是企业1和2博弈的纳什均衡，那么则有对于每一个企业i，$(h_i^<em>,e_i^</em>)$满足
+$$
+\max_{h_i,e_i}\pi_i(t_i,t_j,h_i,e_i,h_j^<em>,e_j^</em>)
+$$
+解这个最优化问题，可得
+$$
+h_i^<em>=\frac1 2(a-e_j^</em>-c)\e_i^<em>=\frac1 2(a-h_j^</em>-c-t_j)\h_j^<em>=\frac1 2(a-e_i^</em>-c)\e_j^<em>=\frac1 2(a-h_i^</em>-c-t_i)，further\\begin{cases}h_i^<em>=\frac1 3(a-c+t_i)\\e_i^</em>=\frac1 3(a-c-t_i)\end{cases}\tag{1}
+$$</p>
+<p>在解出了政府选定关税时，其后第二阶段两企业博弈的结果之后，我们可以把第一阶段政府间的互动决策表示为以下的同时行动博弈 :</p>
+<ol>
+<li>政府同时选择关税</li>
+<li>政府的收益为</li>
+</ol>
+<p>$$
+W_i(t_i,t_j,h_i^<em>,e_i^</em>,h_j^<em>,e_j^</em>)
+$$</p>
+<p>由于后面四个是$(t_i,t_j)$的函数，则如果$(t_i^<em>,t_j^</em>)$是此阶段博弈的纳什均衡，则需要满足
+$$
+\max_{t_i\geq0}W_i(t_i,t_j^<em>)
+$$
+解得
+$$
+t_i^</em>=\frac1 3(a-c)
+$$
+带入1中得
+$$
+h_i^<em>=\frac{4(a-c)}9\e_i^</em>=\frac{a-c}9
+$$
+至此我们求出了这一关税博弈的<strong>子博弈精炼解</strong>
+$$
+t_1^<em>=t_2^</em>=(a-c)/3,h_1^<em>=h_2^</em>=4(a-c)/9,e_1^<em>=e_2^</em>=(a-c)/9
+$$</p>
+<h2 id="25-重复博弈">2.5 重复博弈<a hidden class="anchor" aria-hidden="true" href="#25-重复博弈">#</a></h2>
+<p>本节需要分析</p>
+<ol>
+<li>参与者在长期重复的相互往来中，关于将来行动的威胁或者承诺能否影响到当下的行动</li>
+<li>定义<strong>重复博弈中的子博弈精炼纳什均衡</strong>的概念</li>
+</ol>
+<h3 id="251-两阶段重复博弈">2.5.1 两阶段重复博弈<a hidden class="anchor" aria-hidden="true" href="#251-两阶段重复博弈">#</a></h3>
+<p><strong>首先给出仅有一个纳什均衡的重复博弈的例子</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>$L_2$</th>
+          <th>$R_2$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$L_1$</td>
+          <td>1,1</td>
+          <td>5,0</td>
+      </tr>
+      <tr>
+          <td>$R_1$</td>
+          <td>0,5</td>
+          <td>4,4</td>
+      </tr>
+  </tbody>
+</table>
+<p>以<strong>两阶段囚徒困境</strong>为例，假设两个参与者要把一个同时行动博弈重复进行两次，且在第二次博弈开始之前可以观测到前一次进行的结果，并假设整个过程博弈的收益等于两阶段各自收益的简单相加。</p>
+<p>注意这里的两阶段囚徒困境比一般的完全非完美两阶段博弈遵循更加严格的条件，第二阶段博弈唯一的纳什均衡就是$(L_1,L_2)$，不管第一阶段的结果如何。</p>
+<p>根据上节给出的解法，第二阶段博弈的结果为该阶段博弈的纳什均衡，$(L_1,L_2)$，在此基础上分析第一阶段的情况，第二阶段的均衡收益被加到两人第一阶段每一收益组合上。</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L_2</th>
+          <th>R_2</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L_1</td>
+          <td>2，2</td>
+          <td>6，1</td>
+      </tr>
+      <tr>
+          <td>R_1</td>
+          <td>1，6</td>
+          <td>5，5</td>
+      </tr>
+  </tbody>
+</table>
+<p>同有唯一的纳什均衡$(L_1,L_2)$，故两阶段囚徒困境唯一的子博弈精炼解就是$(L_1,L_2)$$(L_1,L_2)$</p>
+<p>给出<strong>定理</strong></p>
+<p>如果阶段博弈G有位移的纳什均衡，则对任意有限的T重复博弈G（T）有唯一的子博弈精炼解，即G的纳什均衡及如果在每一阶段重复进行。</p>
+<p><strong>现在给出阶段博弈有两个纳什均衡的例子</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L_2</th>
+          <th>M_2</th>
+          <th>R_2</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L_1</td>
+          <td>1，1</td>
+          <td>5，0</td>
+          <td>0，0</td>
+      </tr>
+      <tr>
+          <td>M_1</td>
+          <td>0，5</td>
+          <td>4，4</td>
+          <td>0，0</td>
+      </tr>
+      <tr>
+          <td>R_1</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td>3，3</td>
+      </tr>
+  </tbody>
+</table>
+<p>同样假定在第一阶段参与者预测第二阶段的结果将会是下一阶段博弈的一个纳什均衡，由于这里阶段博弈有不止一个纳什均衡，因而参与者可能会预测根据第一阶段的不同结果.在第二阶段的博弈中将会出现不同的纳什均衡。</p>
+<p>例如设参与者预测，如果第一阶段的结果是$(M_1，M_2)$，则第二阶段的结果是$(R_1,R_2)$。其他情况第二阶段结果均为$(L_1,L_2)$</p>
+<p>那么第一阶段面临的局势即为</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L_2</th>
+          <th>M_2</th>
+          <th>R_2</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L_1</td>
+          <td><strong>2，2</strong></td>
+          <td>6，1</td>
+          <td>1，1</td>
+      </tr>
+      <tr>
+          <td>M_1</td>
+          <td>1，6</td>
+          <td><strong>7，7</strong></td>
+          <td>1，1</td>
+      </tr>
+      <tr>
+          <td>R_1</td>
+          <td>1，1</td>
+          <td>1，1</td>
+          <td><strong>4，4</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>上图所示的一次性博弈中有三个纯战略纳什均衡$(L_1,L_2),(R_1,R_2),(M_1,M_2)$，分别对应着重复博弈的子博弈精炼解
+$$
+(L_1,L_2)\rightarrow(L_1,L_2)\(R_1,R_2)\rightarrow(L_1,L_2)\(M_1,M_2)\rightarrow(R_1,R_2)
+$$
+这里第三个子博弈精炼解证明，在重复博弈的子博弈精炼解中，合作可以在第一阶段达成。这个例子要说明的主要观点是，对将来行动所作的可信的威胁或承诺（参与者的预测）可以影响到当前的行动（以至于在一阶段可以选择一个不属于纳什均衡的合作解）。但是这里有一个重新谈判的问题，因为第二阶段选择L均衡实际上也惩罚了愿意选择合作的参与者。</p>
+<p>为了解决<strong>重新谈判</strong>的问题，我们引入<strong>另一个例子</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L</th>
+          <th>M</th>
+          <th>R</th>
+          <th>P</th>
+          <th>Q</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L</td>
+          <td><strong>1，1</strong></td>
+          <td>5，0</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td>0，0</td>
+      </tr>
+      <tr>
+          <td>M</td>
+          <td>0，5</td>
+          <td><strong>4，4</strong></td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td>0，0</td>
+      </tr>
+      <tr>
+          <td>R</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td><strong>3，3</strong></td>
+          <td>0，0</td>
+          <td>0，0</td>
+      </tr>
+      <tr>
+          <td>P</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td><strong>4，0.5</strong></td>
+          <td>0，0</td>
+      </tr>
+      <tr>
+          <td>Q</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td>0，0</td>
+          <td><strong>0.5，4</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>按照惩罚战略假设，一阶段的博弈可以归纳成下表</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L</th>
+          <th>M</th>
+          <th>R</th>
+          <th>P</th>
+          <th>Q</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L</td>
+          <td>4，4</td>
+          <td>5.5，4</td>
+          <td>3，3</td>
+          <td>3，3</td>
+          <td>3，3</td>
+      </tr>
+      <tr>
+          <td>M</td>
+          <td>4，5.5</td>
+          <td>7，7</td>
+          <td>4，0.5</td>
+          <td>4，0.5</td>
+          <td>4，0.5</td>
+      </tr>
+      <tr>
+          <td>R</td>
+          <td>3，3</td>
+          <td>0.5，4</td>
+          <td>6，6</td>
+          <td>3，3</td>
+          <td>3，3</td>
+      </tr>
+      <tr>
+          <td>P</td>
+          <td>3，3</td>
+          <td>0.5，4</td>
+          <td>3，3</td>
+          <td>7，3.5</td>
+          <td>3，3</td>
+      </tr>
+      <tr>
+          <td>Q</td>
+          <td>3，3</td>
+          <td>0.5，4</td>
+          <td>3，3</td>
+          <td>3，3</td>
+          <td>3.5，7</td>
+      </tr>
+  </tbody>
+</table>
+<p>其中$(M_1,M_2),(R_1,R_2)$就是重复博弈的子博弈精炼解。同时，在上例两阶段重复博弈中，对一个参与者在第一阶段不守信用的惩罚，只能是在第二阶段的帕累托居劣均衡，从而同时惩罚了惩罚者。在这里与之不同的是，有三个均衡处于帕累托边界之上——其中之一可以奖励参与双方在第一阶段的良好行动，另外两个则可以在惩罚第一阶段不守信用者的同时，奖励惩罚者。从而，一旦在二阶段有必要实施惩罚，惩罚者就不会再考虑选择阶段博弈的其他均衡，于是也就无法说服惩罚者就第二阶段的行动进行重新谈判。</p>
+<h3 id="252-无限重复博弈">2.5.2 无限重复博弈<a hidden class="anchor" aria-hidden="true" href="#252-无限重复博弈">#</a></h3>
+<p>在有限重复博弈中，如果阶段博弈 G 有多个纳什均衡，重复博弈 G（T）就可能会存在子博弈精炼解，其中对任意 t&lt; T, 阶段t的结果都不是G 的纳什均衡。在无限重复博弈中一个更强的结论成立：即使阶段博弈有惟一的纳什均衡，无限重复博弈中也可以存在子博弈精炼解，其中没有一个阶段的结果是 G 的纳什均衡。</p>
+<p>设想囚徒困境无限重复下去。我们可以证明在<strong>无限重复博弈的一个子博弈精炼解中每一阶段都将是相互合作。</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>L_2</th>
+          <th>R_2</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L_1</td>
+          <td>1,1</td>
+          <td>5,0</td>
+      </tr>
+      <tr>
+          <td>R_1</td>
+          <td>0,5</td>
+          <td>4,4</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>定义</strong></p>
+<p>给定贴现因子$\delta$，无限的收益序列的现值为
+$$
+\sum_{t=1}^{\infty}\delta^{t-1}\pi_t
+$$
+下面我们分析无限重复的囚徒困境博弈，其中每一参与者的贴现因子都为$\delta$，每一参与者在重复博弈中得到的收益等于各自在所有阶段博弈中得到收益的现值。</p>
+<p><strong>触发战略</strong>：假设参与者i在无限重复博弈中的<strong>开始选择</strong>相互合作的战略，并且当且仅当前面的每个阶段参与双方都选择相互合作时，在其后的阶段博弈中也选择相互合作。</p>
+<p>首先我们证明如果$\delta$距离1足够近，则采取这种战略，对于参与双方都是无限重复博弈的纳什均衡。</p>
+<p>然后再证明这一纳什均衡是子博弈精炼的。</p>
+<h4 id="252-a-证明触发战略是无限重复博弈的纳什均衡">2.5.2 A 证明触发战略是无限重复博弈的纳什均衡<a hidden class="anchor" aria-hidden="true" href="#252-a-证明触发战略是无限重复博弈的纳什均衡">#</a></h4>
+<p>首先假定参与者i已经采用触发战略。</p>
+<ol>
+<li>某阶段的结果偏离了$(R_1,R_2)$时，参与者i将永远选择$L_i$，此时参与者j的最优反应是在其后永远选择$L_j$</li>
+<li>以前结果都是$(R_1,R_2)$时和第一阶段情形一致的。选择$L_j$，会触发不合作战略，因此参与者j在该阶段的收益是</li>
+</ol>
+<p>$$
+5+1\delta+1\delta^2+&hellip;=5+\frac\delta {1-\delta}
+$$</p>
+<p>选择$R_j$，参与者j在该阶段的收益是
+$$
+4+\frac{4\delta} {1-\delta}=\frac4 {1-\delta}
+$$
+如果触发战略是纳什均衡，则此时选择$R_j$最优，则当且仅当下式成立：
+$$
+\frac4 {1-\delta}\geq5+\frac\delta {1-\delta},or \space\delta\geq\frac1 4
+$$</p>
+<h4 id="252-b-证明触发战略是无限重复博弈的子博弈精炼解">2.5.2 B 证明触发战略是无限重复博弈的子博弈精炼解<a hidden class="anchor" aria-hidden="true" href="#252-b-证明触发战略是无限重复博弈的子博弈精炼解">#</a></h4>
+<p><strong>定义：无限重复博弈</strong></p>
+<p>给定一个阶段博弈G，令$G(\infty,\delta)$表示相应的无限重复博弈，其中G将无限次的重复进行，且参与者的贴现因子都是$\delta$。对于每一个t，之前t-1次阶段博弈的结果在t阶段开始进行之前都可被观测到，每个参与者在$G(\infty,\delta)$中的收益都是该参与者在无限次阶段博弈中所得收益的现值。</p>
+<p>在所有博弈中，参与者的战略都是行动的一个完整计划，它包括了该参与者在所有可能的情况下需要作出选择时的行动。例如在一个完全信息静态博弈中，一个战略就是一个行动。</p>
+<p><strong>定义：博弈到阶段$t$的进行过程</strong></p>
+<p>参与各方从阶段1到阶段t所有行动的记录，例如
+$$
+(a_{11},a_{12},&hellip;,a_{1n}),(a_{21},a_{22},&hellip;,a_{2n}),&hellip;,(a_{t1},a_{t2},&hellip;,a_{tn})
+$$
+其中对于每一参与者i，在阶段s选择的行动$a_{si}\in A_{i}$</p>
+<p><strong>定义：战略</strong></p>
+<p>在有限重复博弈G(T)或者无限重复博弈$G(\infty,\delta)$中，参与者的一个战略特指在每一阶段，针对其前面阶段所有可能的进行过程，参与者将会选择的行动。</p>
+<p>子博弈是全部博弈的一部分。当全部博弈进行到任何一个阶段，到此 为止的 进行过 程已成为参与各方的共同知识，而其后尚未开始进行的部分就是一个子博弈。</p>
+<p>那么，参与者的一个战略指该参与者在博弈的第一阶段选择的行动以及在其所有子博弈的第一阶将要选择的行动。</p>
+<p><strong>定义：子博弈精炼纳什均衡</strong></p>
+<p>如果参与者的战略在每一子博弈中都构成纳什均衡，我们则说纳什均衡是子博弈精炼的。</p>
+<p>要想证明无限重复囚徒困境中的触发战略纳什均衡是子博弈精炼的.我们必须证明触发战略在此无限重复博弈中的每一子博弈中都构成了纳什均衡。</p>
+<p>由于无限重复博弈的每一个子博弈都是等同于原博弈，在无限重复囚徒困境的触发战略纳什均衡中这些子博弈可以分为两类：</p>
+<ol>
+<li>所有以前的阶段的结果都是$(R_1,R_2)$的子博弈</li>
+<li>至少有一个前面阶段的结果不是$(R_1,R_2)$的子博弈</li>
+</ol>
+<p>1中参与者的战略仍然是触发战略，我们已经证明了触发战略是该博弈的纳什均衡；2参与者的战略只是永远重复阶段博弈均衡$(L_1,L_2)$，我们也已经证明了是整体博弈的纳什均衡。从而可以证明，无限重复囚徒困境中的触发战略纳什均衡是子博弈精炼的。</p>
+<h4 id="252-c-无限重复博弈定理">2.5.2 C 无限重复博弈定理<a hidden class="anchor" aria-hidden="true" href="#252-c-无限重复博弈定理">#</a></h4>
+<h3 id="253-古诺双头垄断下的共谋">2.5.3 古诺双头垄断下的共谋<a hidden class="anchor" aria-hidden="true" href="#253-古诺双头垄断下的共谋">#</a></h3>
+<p>首先回顾一般的古诺模型。在唯一的纳什均衡条件下，两企业的产量均为
+$$
+q_c\equiv\frac {a-c}3
+$$
+由于垄断产量
+$$
+q_m\equiv\frac{a-c}2
+$$
+则发现两企业均为过度生产，没有达到最优。</p>
+<p>考虑以上述古诺博弈为阶段博弈的无限重复博弈，两企业的贴现因子均为$\delta$。</p>
+<p>在第一阶段生产$q_m/2$，第t阶段如果前t-1阶段两个企业的产量均为$q_m/2$，则生产$q_m/2$，否则生产古诺产量$q_c$。当双方都生产垄断产量一半时，利润水平为$\pi_m/2\equiv(a-c)^2/8$，古诺产量利润水平为$\pi_c\equiv(a-c)^2/9$</p>
+<p>如果企业i在本期生产$q_m/2$，则使得企业j本期利润最大化的产量满足
+$$
+\max_{q_j}(a-q_m/2-q_j-c)q_j
+$$
+解得$q_j^*=3(a-c)/8$，相应的利润水平为$\pi_d\equiv9(a-c^2)/64$</p>
+<p>那么要使得两企业采取上述的触发战略成为纳什均衡，必须满足
+$$
+\frac1 2\pi_m\cdot\frac1{1-\delta}\ge\pi_d+\frac\delta{1-\delta}\pi_c
+$$
+解得$\delta\ge9/17$</p>
+<h2 id="26-完全非完美信息动态博弈">2.6 完全非完美信息动态博弈<a hidden class="anchor" aria-hidden="true" href="#26-完全非完美信息动态博弈">#</a></h2>
+<h3 id="261-博弈的扩展式表述">2.6.1 博弈的扩展式表述<a hidden class="anchor" aria-hidden="true" href="#261-博弈的扩展式表述">#</a></h3>
+<p>一个博弈的扩展式表述包括：1)博弈中的参与人；(2)每一参与者在何时行动；(3)每次轮到某一参与者行动时，可供他选择的行动；
+(4)每次轮到某一参与者行动时，他所了解的信息；及(5)与参与者可能选择的每一行动组合相对应的各个参与者的收益。</p>
+<p>将一个动态博弈转化为标准式描述&mdash;对于战略的扩展</p>
+<p>将一个静态博弈转化为扩展式表述&mdash;信息集&mdash;完美信息即每一个信息集都是单节点的</p>
+<h3 id="262-子博弈精炼纳什均衡">2.6.2 子博弈精炼纳什均衡<a hidden class="anchor" aria-hidden="true" href="#262-子博弈精炼纳什均衡">#</a></h3>
+<p><strong>定义：扩展式博弈中的子博弈</strong></p>
+<ol>
+<li>始于单节点信息集的决策节n</li>
+<li>包含博弈树中n之下的所有决策节和终点节</li>
+<li>没有对信息集进行分割</li>
+</ol>
+<p><strong>定义：子博弈精炼纳什均衡</strong></p>
+<p>如果参与者的战略在每一个子博弈中都构成了纳什均衡，则称纳什均衡是子博弈精炼的。</p>
+<p>任何有限的完全信息动态博弈（即任何参与者有限、每一参与者的可行战略集有限的博弈）都存在子博弈精炼纳什均衡，也许包含混合战略。</p>
+<p><strong>定义：与逆向归纳解的区别</strong></p>
+<p>在第2.1.A节定义的完全且完美信息两阶段博弈中，逆向归纳解为$(a_1^<em>,R_2(a_1^</em>))$，但子博弈精炼纳什均衡为$(a_1^*,R_2(a_1))$</p>
+<p><strong>定义：与子博弈精炼解的区别</strong></p>
+<p>在第2.2.A 节定义的完全非完美信息两阶段博弈中，子博弈精炼解为$(a_1^<em>,a_2^</em>,a_3^<em>(a_1^</em>,a_2^<em>),a_4^</em>(a_1^<em>,a_2^</em>))$ ，但是子博弈精炼纳什均衡为$(a_1^<em>,a_2^</em>,a_3^<em>(a_1,a_2),a_4^</em>(a_1,a_2))$</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/blog4yifeng/posts/my-first-post/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Soldiers</span>
+  </a>
+</nav>
+
+  </footer><script src="https://utteranc.es/client.js"
+        repo="YifengChen2023/blog4yifeng"
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+  
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/blog4yifeng/">Yifeng&#39;s Online Space.</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
