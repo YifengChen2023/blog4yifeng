@@ -1,45 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>http://localhost:1313/blog4yifeng/posts/philosophize-this/</loc>
-    <lastmod>2025-02-04T01:25:33-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/posts/</loc>
-    <lastmod>2025-02-04T01:25:33-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/</loc>
-    <lastmod>2025-02-04T01:25:33-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/categories/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/tags/code/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/tags/gist/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/tags/markdown/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/posts/my-first-post/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/tags/syntax/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/categories/syntax/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/tags/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/categories/themes/</loc>
-    <lastmod>2025-02-04T00:37:44-05:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/archives/</loc>
-  </url><url>
-    <loc>http://localhost:1313/blog4yifeng/search/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://yifengchen2023.github.io/blog4yifeng/en/sitemap.xml</loc>
+    
+      <lastmod>2025-02-04T01:25:33-05:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://yifengchen2023.github.io/blog4yifeng/fr/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>

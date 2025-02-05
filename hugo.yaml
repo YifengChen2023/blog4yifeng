@@ -19,14 +19,32 @@ languages:
   en:
     languageName: "Posts"
     weight: 1
+    menu:
+      main:
+        - identifiers: categories
+          name: Categories
+          url: /categories/
+          weight: 10
+        - identifiers: tags
+          name: Tags
+          url: /tags/
+          weight: 20
+        - identifiers: archives
+          name: Archives
+          url: /archives/
+          weight: 30
+        - identifiers: search
+          name: Search
+          url: /search/
+          weight: 40
   fr:
-    languageName: "Profiles"
+    languageName: "About me"
     weight: 2
     params:
       profileMode:
         enabled: true
         title: "Memento Vivere." # optional default will be site title
-        subtitle: "Yifeng's Blog" # optional default will be site description
+        subtitle: "Remember to live." # optional default will be site description
         imageUrl: img/SunOnThePeak.jpg
         imageTitle: "日照金山" # optional
         imageWidth: 400 # custom size
@@ -36,7 +54,24 @@ languages:
             url: "/archive"
           - name: Github
             url: "https://github.com/"
-
+    menu:
+      main:
+        - identifiers: categories
+          name: Categories
+          url: ../categories/
+          weight: 10
+        - identifiers: tags
+          name: Tags
+          url: ../tags/
+          weight: 20
+        - identifiers: archives
+          name: Archives
+          url: ../archives/
+          weight: 30
+        - identifiers: search
+          name: Search
+          url: ../search/
+          weight: 40
 
 
 params:
@@ -101,24 +136,7 @@ params:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
-menu:
-  main:
-    - identifiers: categories
-      name: Categories
-      url: /categories/
-      weight: 10
-    - identifiers: tags
-      name: Tags
-      url: /tags/
-      weight: 20
-    - identifiers: archives
-      name: Archives
-      url: /archives/
-      weight: 30
-    - identifiers: search
-      name: Search
-      url: /search/
-      weight: 40
+
 
 outputs:
   home:
