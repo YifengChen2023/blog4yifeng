@@ -53,8 +53,8 @@ languages:
     params:
       profileMode:
         enabled: true
-        title: "Memento Vivere." # optional default will be site title
-        subtitle: "Remember to live." # optional default will be site description
+        title: "No freedom for the enemies of freedom." # optional default will be site title
+        subtitle: "---- Louis Antoine de Saint-Just" # optional default will be site description
         imageUrl: img/SunOnThePeak.jpg
         imageTitle: "Sunrise on Meili Snow Mountains." # optional
         imageWidth: 400 # custom size
